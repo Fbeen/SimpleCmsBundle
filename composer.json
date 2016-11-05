@@ -1,0 +1,27 @@
+{
+    "name" : "fbeen/simplecmsbundle",
+    "description" : "Complete CMS functionality for Symfony 3",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Frank Beentjes",
+        "email" : "frankbeen@gmail.com"
+    }],
+    "keywords" : [
+        "Simple CMS Bundle"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+        "php": "^5.5.9|^7.0",
+        "symfony/framework-bundle": "^3.0",
+        "knplabs/doctrine-behaviors": "^1.1",
+        "a2lix/translation-form-bundle": "^2.1"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Fbeen\\SimpleCmsBundle" : ""
+        }
+    },
+    "target-dir" : "Fbeen/SimpleCmsBundle"
+}

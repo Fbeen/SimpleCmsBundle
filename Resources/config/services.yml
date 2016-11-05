@@ -1,0 +1,74 @@
+services:
+    fbeen.simple_cms.routing_loader:
+        class: Fbeen\SimpleCmsBundle\Routing\SimpleCmsLoader
+        arguments: ['@service_container']
+        tags:
+            - { name: routing.loader }
+            
+    fbeen.simple_cms.content_helper:
+        class: Fbeen\SimpleCmsBundle\Service\ContentHelper
+        arguments: ['@service_container']
+
+    fbeen.simple_cms.action_listener:
+        class: Fbeen\SimpleCmsBundle\EventListener\ActionListener
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller_arguments, method: onKernelRequest, priority: 33 }
+            
+    fbeen.simple_cms.block_extension:
+        class: Fbeen\SimpleCmsBundle\Twig\BlockExtension
+        arguments: ['@service_container']
+        tags:
+            - { name: twig.extension }
+    
+    # blockTypes
+    fbeen.simple_cms.blocktype_simple_block:
+        class: Fbeen\SimpleCmsBundle\Blocks\SimpleBlock
+        arguments: ['@service_container']
+    
+    fbeen.simple_cms.blocktype_menu_block:
+        class: Fbeen\SimpleCmsBundle\Blocks\MenuBlock
+        arguments: ['@service_container']
+    
+    # sonata admin services
+    fbeen_simple_cms.admin.route:
+        class: Fbeen\SimpleCmsBundle\Admin\RouteAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\Route, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Route }
+
+    fbeen_simple_cms.admin.block:
+        class: Fbeen\SimpleCmsBundle\Admin\BlockAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\Block, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Block }
+
+    fbeen_simple_cms.admin.content:
+        class: Fbeen\SimpleCmsBundle\Admin\ContentAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\Content, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Content }
+
+    fbeen_simple_cms.admin.menu:
+        class: Fbeen\SimpleCmsBundle\Admin\MenuAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\Menu, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Menu }
+
+    fbeen_simple_cms.admin.menuitem:
+        class: Fbeen\SimpleCmsBundle\Admin\MenuitemAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\Menuitem, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Menuitem }
+
+    fbeen_simple_cms.admin.simple_block_type:
+        class: Fbeen\SimpleCmsBundle\Admin\SimpleBlockTypeAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\SimpleBlockType, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: SimpleBlockType }
+
+    fbeen_simple_cms.admin.block_container:
+        class: Fbeen\SimpleCmsBundle\Admin\BlockContainerAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\BlockContainer, FbeenSimpleCmsBundle:BlockContainerAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: BlockContainer }

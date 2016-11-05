@@ -1,0 +1,15 @@
+{% extends 'SonataAdminBundle:CRUD:base_edit.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(function() {
+            // number the sortfields before submit
+            $('form').submit(function( event ) {
+                $('.sortable').each(function( index ) {
+                    $(this).val(index+1);
+                });
+            });
+        });
+    </script>
+{% endblock %}

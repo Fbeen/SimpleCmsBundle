@@ -1,0 +1,3 @@
+fbeen_simple_cms:
+    resource: .
+    type: fbeen_simple_cms
