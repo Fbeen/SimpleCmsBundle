@@ -23,7 +23,6 @@ class BlockAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name')
             ->add('type')
             ->add('identifier')
         ;
@@ -35,7 +34,6 @@ class BlockAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('name')
             ->add('type')
             ->add('identifier')
             ->add('_action', null, array(
@@ -65,7 +63,6 @@ class BlockAdmin extends AbstractAdmin
         }
         
         $formMapper
-            ->add('name')
             ->add('type', ChoiceType::class, array(
                 'choices' => $blockChoices
             ))
@@ -83,7 +80,6 @@ class BlockAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('name')
             ->add('type')
             ->add('identifier')
         ;
