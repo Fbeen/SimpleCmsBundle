@@ -37,8 +37,7 @@ class MenuitemAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('route')
-            ->add('url')
+            ->add('value')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -93,8 +92,7 @@ class MenuitemAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('name')
-            ->add('route')
-            ->add('url')
+            ->add('value')
             ->add('menu')
         ;
     }

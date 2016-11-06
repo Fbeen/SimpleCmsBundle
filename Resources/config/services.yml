@@ -41,7 +41,7 @@ services:
         class: Fbeen\SimpleCmsBundle\Admin\RouteAdmin
         arguments: [~, Fbeen\SimpleCmsBundle\Entity\Route, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Route }
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Routes }
 
     fbeen_simple_cms.admin.block:
         class: Fbeen\SimpleCmsBundle\Admin\BlockAdmin
@@ -53,13 +53,13 @@ services:
         class: Fbeen\SimpleCmsBundle\Admin\ContentAdmin
         arguments: [~, Fbeen\SimpleCmsBundle\Entity\Content, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Content }
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Pagina's }
 
     fbeen_simple_cms.admin.menu:
         class: Fbeen\SimpleCmsBundle\Admin\MenuAdmin
         arguments: [~, Fbeen\SimpleCmsBundle\Entity\Menu, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Menu }
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Menu's }
 
     fbeen_simple_cms.admin.menuitem:
         class: Fbeen\SimpleCmsBundle\Admin\MenuitemAdmin
@@ -71,7 +71,7 @@ services:
         class: Fbeen\SimpleCmsBundle\Admin\SimpleBlockTypeAdmin
         arguments: [~, Fbeen\SimpleCmsBundle\Entity\SimpleBlockType, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: SimpleBlockType }
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Tekst blokken }
 
     fbeen_simple_cms.admin.block_container:
         class: Fbeen\SimpleCmsBundle\Admin\BlockContainerAdmin

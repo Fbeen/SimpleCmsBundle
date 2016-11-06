@@ -29,9 +29,8 @@ class SimpleBlockTypeAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('name')
+            ->addIdentifier('name')
             ->add('title')
-            ->add('body')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
