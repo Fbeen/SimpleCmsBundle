@@ -4,24 +4,32 @@ namespace Fbeen\SimpleCmsBundle\Blocks;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Fbeen\SimpleCmsBundle\Model\BlockInterface;
+use Knp\Menu\Twig\Helper;
 
 /**
- * Description of SimpleBlock
+ * Description of MenuBlock
  *
  * @author Frank Beentjes <frankbeen@gmail.com>
  */
 
 class MenuBlock implements BlockInterface
 {
-    private $container;
+    private $helper;
 
-    public function __construct(ContainerInterface $container)
+    /**
+     * @param Helper $helper
+     */
+    public function __construct(Helper $helper)
     {
-        $this->container = $container;
+        $this->helper = $helper;
     }
 
-    public function renderBlock($identifier)
+    public function renderBlock($identifier, $options = array())
     {
-        return $identifier . ' menu';
+        $options = array_merge($options, array('fbeen_simple_cms_name' => $identifier));
+
+        $menu = $this->helper->get('FbeenSimpleCmsBundle:Builder:cmsMenu', [], $options);
+
+        return $this->helper->render($menu);
     }
 }

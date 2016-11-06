@@ -34,7 +34,7 @@ services:
     
     fbeen.simple_cms.blocktype_menu_block:
         class: Fbeen\SimpleCmsBundle\Blocks\MenuBlock
-        arguments: ['@service_container']
+        arguments: ['@knp_menu.helper']
     
     # sonata admin services
     fbeen_simple_cms.admin.route:
