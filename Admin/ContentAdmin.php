@@ -116,12 +116,25 @@ class ContentAdmin extends AbstractAdmin
         $this->prePersist($content);
     }
     
+    private function persistBlocks($blockContainer)
+    {
+        $em = $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager');
+
+        foreach($blockContainer->getBlocks() as $block)
+        {
+            $block->setBlockContainer($blockContainer);
+            $em->persist($block); 
+        }
+    }
+    
     private function persistBlockContainers($content)
     {
         $em = $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager');
 
         foreach($content->getBlockContainers() as $blockContainer)
         {
+            $this->persistBlocks($blockContainer);
+            
             $blockContainer->addContent($content);
             $em->persist($blockContainer); 
         }
