@@ -39,7 +39,7 @@ class ContentHelper
         
         foreach($this->content->getBlockContainers() as $blockContainer)
         {
-            if($name = $blockContainer->getName())
+            if($name == $blockContainer->getName())
             {
                 return $blockContainer;
             }
