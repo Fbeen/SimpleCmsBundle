@@ -13,6 +13,10 @@ use Fbeen\SimpleCmsBundle\Entity\Content;
 
 class ContentAdmin extends AbstractAdmin
 {
+    public function configure() {
+        $this->setTemplate('edit', 'FbeenSimpleCmsBundle:Admin:edit_menu.html.twig');
+    }
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -81,8 +85,7 @@ class ContentAdmin extends AbstractAdmin
                     )
                     , array(
                         'edit' => 'inline',
-                        'inline' => 'table',
-                        'sortable' => 'dummy'
+                        'inline' => 'table'
                     ))
                 ->end()
             ->end()

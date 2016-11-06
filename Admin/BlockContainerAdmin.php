@@ -10,6 +10,10 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class BlockContainerAdmin extends AbstractAdmin
 {
+    public function configure() {
+        $this->setTemplate('edit', 'FbeenSimpleCmsBundle:Admin:edit_menu.html.twig');
+    }
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -49,7 +53,7 @@ class BlockContainerAdmin extends AbstractAdmin
                 'by_reference' => false,
                 'label' => 'Blocks',
                 'type_options' => array('delete' => true),
-                'btn_add' => ' Block toevoegen',
+                'btn_add' => ' Blok toevoegen',
                 'required' => false,
                 'help' => '<br><i class="fa fa-info-circle" aria-hidden="true"></i> Blocks worden in een containerblok geplaatst. Hierdoor is het mogelijk om meerdere blokken onder of naast elkaar te plaatsen en tevens kunt u de volgorde van de blokken in de container bepalen.'
 

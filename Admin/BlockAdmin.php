@@ -11,6 +11,12 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class BlockAdmin extends AbstractAdmin
 {
+    protected $datagridValues = array(
+        '_page' => 1,
+        '_sort_order' => 'ASC',
+        '_sort_by' => 'sort',
+    );
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -64,6 +70,10 @@ class BlockAdmin extends AbstractAdmin
                 'choices' => $blockChoices
             ))
             ->add('identifier')
+            ->add('sort', 'hidden', array(
+                'label' => FALSE,
+                'attr' => array('class' => 'sortable')
+            ))
         ;
     }
 

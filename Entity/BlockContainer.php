@@ -35,9 +35,10 @@ class BlockContainer
     private $contents;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Block", inversedBy="blockContainers", cascade={"persist"})
-     * @ORM\JoinTable(name="blockcontainers_blocks")
-     */
+     * @ORM\OneToMany(targetEntity="Block", mappedBy="blockContainer", cascade={"persist"})
+     * 
+     * @ORM\OrderBy({"sort" = "ASC"})
+    */
     private $blocks;
 
     public function __construct()

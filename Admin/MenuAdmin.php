@@ -51,6 +51,7 @@ class MenuAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('name')
+            ->add('class')
             ->add('menuitems', 'sonata_type_collection', array(
                 'by_reference' => false,
                 'label' => 'Menuitems',

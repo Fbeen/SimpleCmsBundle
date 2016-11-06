@@ -41,23 +41,16 @@ class Menuitem
     /**
      * @var string
      *
-     * @ORM\Column(name="route", type="string", length=64, nullable=true)
+     * @ORM\Column(name="value", type="string", length=255)
      */
-    private $route;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="url", type="string", length=255, nullable=true)
-     */
-    private $url;
+    private $value;
 
     /**
      * CSS class for the <a> element
      * 
      * @var string
      *
-     * @ORM\Column(name="a_class", type="string", length=64, nullable=true)
+     * @ORM\Column(name="a_class", type="string", length=128, nullable=true)
      */
     private $aClass;
 
@@ -147,51 +140,27 @@ class Menuitem
     }
 
     /**
-     * Set route
+     * Set value
      *
-     * @param string $route
+     * @param string $value
      *
      * @return Menuitem
      */
-    public function setRoute($route)
+    public function setValue($value)
     {
-        $this->route = $route;
+        $this->value = $value;
 
         return $this;
     }
 
     /**
-     * Get route
+     * Get value
      *
      * @return string
      */
-    public function getRoute()
+    public function getValue()
     {
-        return $this->route;
-    }
-
-    /**
-     * Set url
-     *
-     * @param string $url
-     *
-     * @return Menuitem
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * Get url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
+        return $this->value;
     }
 
     /**

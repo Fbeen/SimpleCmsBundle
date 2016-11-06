@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class MenuitemAdmin extends AbstractAdmin
 {
@@ -65,20 +66,14 @@ class MenuitemAdmin extends AbstractAdmin
                      ]
                 ]
             ])
-            ->add('type', 'sonata_type_choice_field_mask', array(
+            ->add('type', ChoiceType::class, array(
                 'choices' => array(
-                    'url' => 'url',
-                    'route' => 'route',
-                ),
-                'map' => array(
-                    'route' => array('route'),
-                    'url' => array('url'),
-                ),
-                'placeholder' => 'Choose an option',
-                'required' => true
+                    'Route' => 'route',
+                    'Url' => 'url',
+                    'Submenu' => 'submenu',
+                )
             ))
-            ->add('route')
-            ->add('url')
+            ->add('value')
             ->add('aClass')
             ->add('liClass')
             ->add('sort', 'hidden', array(

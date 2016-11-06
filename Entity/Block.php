@@ -44,9 +44,17 @@ class Block
     private $identifier;
 
     /**
-     * @ORM\ManyToMany(targetEntity="BlockContainer", mappedBy="blocks")
+     * @var integer
+     *
+     * @ORM\Column(name="sort", type="integer")
      */
-    private $blockContainers;
+    private $sort = 999;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="BlockContainer", inversedBy="blocks")
+     * @ORM\JoinColumn(name="blockcontainer_id", referencedColumnName="id")
+     */
+    private $blockContainer;
 
 
     public function __toString()
@@ -113,45 +121,27 @@ class Block
     }
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->blockContainers = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add blockContainer
+     * Set sort
      *
-     * @param \Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer
+     * @param integer $sort
      *
-     * @return Block
+     * @return Menuitem
      */
-    public function addBlockContainer(\Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer)
+    public function setSort($sort)
     {
-        $this->blockContainers[] = $blockContainer;
+        $this->sort = $sort;
 
         return $this;
     }
 
     /**
-     * Remove blockContainer
+     * Get sort
      *
-     * @param \Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer
+     * @return integer
      */
-    public function removeBlockContainer(\Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer)
+    public function getSort()
     {
-        $this->blockContainers->removeElement($blockContainer);
-    }
-
-    /**
-     * Get blockContainers
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBlockContainers()
-    {
-        return $this->blockContainers;
+        return $this->sort;
     }
 
     /**
@@ -176,5 +166,29 @@ class Block
     public function getIdentifier()
     {
         return $this->identifier;
+    }
+
+    /**
+     * Set blockContainer
+     *
+     * @param \Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer
+     *
+     * @return Block
+     */
+    public function setBlockContainer(\Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer = null)
+    {
+        $this->blockContainer = $blockContainer;
+
+        return $this;
+    }
+
+    /**
+     * Get blockContainer
+     *
+     * @return \Fbeen\SimpleCmsBundle\Entity\BlockContainer
+     */
+    public function getBlockContainer()
+    {
+        return $this->blockContainer;
     }
 }

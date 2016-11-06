@@ -24,7 +24,7 @@ class ActionListener extends ResponseListener
     {
         $em = $this->container->get('doctrine.orm.default_entity_manager');
         
-        $route = $em->getRepository('FbeenSimpleCmsBundle:Route')->findOneBy(array('name' => $event->getRequest()->get('_route')));
+        $route = $em->getRepository('FbeenSimpleCmsBundle:Route')->findRouteWithCompleteContent($event->getRequest()->get('_route'));
 
         if(NULL !== $route)
         {

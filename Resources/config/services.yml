@@ -20,6 +20,12 @@ services:
         arguments: ['@service_container']
         tags:
             - { name: twig.extension }
+            
+    fbeen.simple_cms.menu_extension:
+        class: Fbeen\SimpleCmsBundle\Twig\MenuExtension
+        arguments: ['@knp_menu.helper']
+        tags:
+            - { name: twig.extension }
     
     # blockTypes
     fbeen.simple_cms.blocktype_simple_block:

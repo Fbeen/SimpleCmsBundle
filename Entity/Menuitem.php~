@@ -57,7 +57,7 @@ class Menuitem
      * 
      * @var string
      *
-     * @ORM\Column(name="a_class", type="string", length=64, nullable=true)
+     * @ORM\Column(name="a_class", type="string", length=128, nullable=true)
      */
     private $aClass;
 

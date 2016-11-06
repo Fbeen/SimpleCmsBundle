@@ -30,6 +30,15 @@ class Menu
     private $name;
 
     /**
+     * CSS class for the <ul> element
+     * 
+     * @var string
+     *
+     * @ORM\Column(name="class", type="string", length=128, nullable=true)
+     */
+    private $class;
+
+    /**
      * @ORM\OneToMany(targetEntity="Menuitem", mappedBy="menu", cascade={"persist"})
      * 
      * @ORM\OrderBy({"sort" = "ASC"})
@@ -112,5 +121,29 @@ class Menu
     public function getMenuitems()
     {
         return $this->menuitems;
+    }
+
+    /**
+     * Set class
+     *
+     * @param string $class
+     *
+     * @return Menu
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 }
