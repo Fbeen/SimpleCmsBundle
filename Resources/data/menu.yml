@@ -1,0 +1,243 @@
+menu:
+    -
+        name: main-menu
+        class: 'nav navbar-nav navbar-right main-menu'
+        menuitems:
+            -
+                name: homepage
+                route: homepage
+                label: 'Home'
+            -
+                name: news
+                route: news
+                label: 'Nieuws'
+            -
+                name: openbaar
+                route: /cms/openbaar
+                label: 'Openbaar'
+            -
+                name: leden
+                route: /cms/leden
+                label: 'Leden'
+            -
+                name: over-ons
+                route: /cms/over-ons
+                label: 'Over ons'
+                
+    -
+        name: user-menu
+        class: 'nav navbar-nav navbar-right main-menu'
+        menuitems:
+            -
+                name: homepage
+                route: homepage
+                label: 'Home'
+            -
+                name: news
+                route: news
+                label: 'Nieuws'
+            -
+                name: openbaar
+                route: /cms/openbaar
+                label: 'Openbaar'
+            -
+                name: leden
+                route: /cms/leden
+                label: 'Leden'
+            -
+                name: over-ons
+                route: /cms/over-ons
+                label: 'Over ons'
+            -
+                name: leden-dropdown
+                label: ' '
+                type: submenu
+                value: login-menu
+
+    -
+        name: login-menu
+        class: 'dropdown'
+        menuitems:
+            -
+                name: mijn-documenten
+                route: document_index
+                label: 'Mijn documenten'
+            -
+                name: profiel
+                route: fbeen_user_profile_show
+                label: 'Mijn profiel'
+            -
+                name: logout
+                route: logout
+                label: 'Uitloggen'
+
+                
+    -
+        name: about-us-menu
+        class: 'nav nav-pills nav-stacked sidebar-menu'
+        menuitems:
+            -
+                name: over-ons
+                route: /cms/over-ons
+                label: 'Over ons'
+            -
+                name: news
+                route: news
+                label: 'Nieuws'
+            -
+                name: wie-zijn-er-lid
+                route: /cms/over-ons/wie-zijn-er-lid
+                label: 'Wie zijn er lid'
+            -
+                name: contact
+                route: /cms/over-ons/contact
+                label: 'Contact'
+            -
+                name: kennismaken
+                route: /cms/over-ons/kennis-maken
+                label: 'Kennis maken'
+            -
+                name: visie-missie
+                route: /cms/over-ons/visie-missie
+                label: 'Visie en Missie'
+            -
+                name: structuur
+                route: /cms/over-ons/structuur
+                label: 'Structuur'
+
+    -
+        name: openbaar-menu
+        class: 'nav nav-pills nav-stacked sidebar-menu'
+        menuitems:
+            -
+                name: openbaar
+                route: /cms/openbaar
+                label: 'Openbaar'
+            -
+                route: /cms/openbaar/ilow-symposium-2017
+                name: 'ilow-symposium-2017'
+                label: 'ILOW symposium 2017'
+            -
+                route: /cms/openbaar/ilow-symposium-2013
+                name: 'ilow-symposium-2013'
+                label: 'ILOW symposium 2013'
+            -
+                route: /cms/openbaar/ilow-symposium-2012
+                name: 'ilow-symposium-2012'
+                label: 'ILOW symposium 2012'
+            -
+                route: /cms/openbaar/ilow-symposium-2011
+                name: 'ilow-symposium-2011'
+                label: 'ILOW symposium 2011'
+            -
+                route: /cms/openbaar/ilow-publicaties
+                name: 'ilow-publicaties'
+                label: 'ILOW publicaties'
+            -
+                route: /cms/openbaar/openbare-artikelen
+                name: 'openbare-artikelen'
+                label: 'Artikelen'
+
+    -
+        name: leden-menu
+        class: 'nav nav-pills nav-stacked sidebar-menu'
+        menuitems:
+            -
+                name: leden
+                route: /cms/leden
+                label: 'Leden'
+            -
+                name: uit-de-oude-doos
+                route: /cms/leden/uit-de-oude-doos
+                label: 'Uit de oude doos'
+
+            -
+                name: vergaderstukken
+                route: /cms/leden/vergaderstukken
+                label: 'Vergaderstukken'
+            -
+                name: artikelen
+                route: /cms/leden/artikelen
+                label: 'Artikelen'
+
+            -
+                name: unie
+                route: /cms/leden/unie
+                label: 'Unie'
+
+            -
+                name: nen-milieuwkwaliteit
+                route: /cms/leden/nen-milieukwaliteit
+                label: 'NEN Milieukwaliteit'
+
+            -
+                name: presentaties
+                route: /cms/leden/presentaties
+                label: 'Presentaties ILOW'
+
+
+    -
+        name: vergaderstukken-menu
+        class: 'nav nav-pills nav-stacked vergader-menu'
+        menuitems:
+            -
+                name: algemeen
+                route: /cms/leden/vergaderstukken/algemeen
+                label: 'Algemeen'
+            -
+                name: monsterneming
+                route: /cms/leden/vergaderstukken/monsterneming
+                label: 'Monsterneming'
+            -
+                name: organisch
+                route: /cms/leden/vergaderstukken/organisch
+                label: 'Organisch'
+            -
+                name: kostprijsberekening
+                route: /cms/leden/vergaderstukken/kostprijsberekening
+                label: 'Kostprijsberekening'
+            -
+                name: innovatie
+                route: /cms/leden/vergaderstukken/innovatie
+                label: 'Innovatie'
+            -
+                name: inkoop
+                route: /cms/leden/vergaderstukken/inkoop
+                label: 'Inkoop'
+            -
+                name: benchmarking
+                route: /cms/leden/vergaderstukken/benchmarking
+                label: 'Benchmarking'
+            -
+                name: anorganisch
+                route: /cms/leden/vergaderstukken/anorganisch
+                label: 'Anorganisch'
+            -
+                name: kwaliteitsmanagement
+                route: /cms/leden/vergaderstukken/kwaliteitsmanagement
+                label: 'Kwaliteitsmanagement'
+            -
+                name: microbiologie
+                route: /cms/leden/vergaderstukken/microbiologie
+                label: 'Microbiologie'
+            -
+                name: hydrobiologie
+                route: /cms/leden/vergaderstukken/hydrobiologie
+                label: 'Hydrobiologie'
+            -
+                name: macroparameters
+                route: /cms/leden/vergaderstukken/macroparameters-noord
+                label: 'Macroparameters Noord'
+            -
+                name: vergaderstukken stuurgroep
+                route: /cms/leden/vergaderstukken/vergaderstukken-stuurgroep
+                label: 'Vergaderstukken stuurgroep'
+
+    -
+        name: terug-naar-vergaderstukken
+        class: 'nav nav-pills terug'
+        menuitems:
+            -
+                name: vergaderstukken
+                route: /cms/leden/vergaderstukken
+                label: 'Terug naar alle vergaderstukken'

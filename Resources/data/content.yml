@@ -1,0 +1,892 @@
+content:
+    -
+        route: /homepage
+        name: 'homepage'
+        title: 'Homepage'
+        body:
+            nl: |
+                <p>Hartelijk welkom op de homepage van de ILOW website. <a href="http://ilow.nl/openbaar">Klik hier voor openbare informatie</a>. <a href="http://ilow.nl/login">Leden kunnen hier inloggen</a>.</p>
+    -
+        route: /openbaar
+        name: 'openbaar'
+        title: 'Openbaar'
+        body:
+            nl: |
+                 <p></p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'openbaar-menu'
+                        title: 'Openbaar'
+                        menu: '/cms/menu/openbaar-menu'
+    -
+        route: /openbaar/ilow-symposium-2017
+        name: 'ilow-symposium-2017'
+        title: 'ILOW symposium 2017'
+        body:
+            nl: |
+                <h2>Vooraankondiging vierde ILOW innovatie symposium</h2>
+                <p>&nbsp;</p>
+                <p>Op&nbsp;<strong>woensdag 15 februari 2017</strong>&nbsp;wordt in het MediaPlaza van de Jaarbeurs te Utrecht het vierde ILOW innovatie symposium gehouden. Het symposium staat dit keer in het teken van</p>
+                <p>&nbsp;</p>
+                <h2>HYDROBIOLOGIE</h2>
+                <p>&nbsp;</p>
+                <p>De organisatie van het symposium is in handen van de werkgroep Innovatie van het ILOW.<br />
+                De ILOW symposia zijn een must voor iedereen die zich wil verdiepen in de toekomst van het waterkwaliteitsonderzoek. Dus reserveer de datum alvast in uw agenda!</p>
+                <p>De thema&rsquo;s die worden gepresenteerd zijn:&nbsp;<br />
+                KRW &ndash; Effectmonitoring &ndash; Innovatief onderzoek &ndash; Normalisatie &ndash; Kwaliteit &ndash; Uitvoering &ndash; Handboek Hydrobiologie &ndash; NEN- en EN-normen &ndash; Maatlatten en Toetsing &ndash; Zwemwateronderzoek &ndash; Environmental DNA.</p>
+                <p>Zodra het definitieve programma bekend is, krijgt u daarvan bericht. Het wordt dan ook geplaatst op de website van het ILOW,&nbsp;<a href="http://www.ilow.nl/">http://www.ilow.nl</a>. Heeft u nu al vragen, neem dan contact met ons op via E-mail&nbsp;<a href="mailto:innovatie@ilow.nl">innovatie@ilow.nl</a>&nbsp;of via onderstaande telefoonnummers.</p>
+                <p>Willie van den Berg (06-20162675)<br />
+                Henk Zemmelink (06-29099775)<br />
+                co&ouml;rdinatoren ILOW symposiumorganisatie</p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'openbaar-menu'
+                        title: 'Openbaar'
+                        menu: '/cms/menu/openbaar-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Openbare documenten'
+    -
+        route: /openbaar/ilow-symposium-2013
+        name: 'ilow-symposium-2013'
+        title: 'ILOW symposium 2013'
+        body:
+            nl: |
+                 <p></p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'openbaar-menu'
+                        title: 'Openbaar'
+                        menu: '/cms/menu/openbaar-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Openbare documenten'
+    -
+        route: /openbaar/ilow-symposium-2012
+        name: 'ilow-symposium-2012'
+        title: 'ILOW symposium 2012'
+        body:
+            nl: |
+                 <p></p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'openbaar-menu'
+                        title: 'Openbaar'
+                        menu: '/cms/menu/openbaar-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Openbare documenten'
+    -
+        route: /openbaar/ilow-symposium-2011
+        name: 'ilow-symposium-2011'
+        title: 'ILOW symposium 2011'
+        body:
+            nl: |
+                 <p></p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'openbaar-menu'
+                        title: 'Openbaar'
+                        menu: '/cms/menu/openbaar-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Openbare documenten'
+    -
+        route: /openbaar/ilow-publicaties
+        name: 'ilow-publicaties'
+        title: 'ILOW publicaties'
+        body:
+            nl: |
+                 <p>In deze lijst staan enkele publicaties die in de afgelopen jaren door ILOW zijn verzorgd.</p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'openbaar-menu'
+                        title: 'Openbaar'
+                        menu: '/cms/menu/openbaar-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Openbare documenten'
+    -
+        route: /openbaar/openbare-artikelen
+        name: 'openbare-artikelen'
+        title: 'Artikelen'
+        body:
+            nl: |
+                 <p>Bekijk hieronder de lijst met artikelen die we in de afgelopen jaren hebben verzameld. Er zit veel interessant werk bij.</p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'openbaar-menu'
+                        title: 'Openbaar'
+                        menu: '/cms/menu/openbaar-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Openbare documenten'
+                 
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    -
+        route: /leden
+        name: 'leden'
+        title: 'Leden'
+        body:
+            nl: |
+                 <p>U bent op de ledenpagina. Deze pagina is alleen toegankelijk als u bent ingelogd. Maak een keuze in het rechter menu.</p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+
+    -
+        route: /leden/uit-de-oude-doos
+        name: 'uit-de-oude-doos'
+        title: 'Uit de oude doos'
+        body:
+            nl: |
+                 <p>Stukken uit het digitale archief.</p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken
+        name: 'vergaderstukken'
+        title: 'ILOW Vergaderstukken'
+        body: |
+                 <h2>Stukken uit het digitale archief</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'menu'
+                        menu: '/cms/menu/vergaderstukken-menu'
+
+    -
+        route: /leden/vergaderstukken/algemeen
+        name: 'algemeen'
+        title: 'Algemeen'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/monsterneming
+        name: 'monsterneming'
+        title: 'Monsterneming'
+        body: |
+                 <h2>Monsterneming</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/organisch
+        name: 'organisch'
+        title: 'Organisch'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/kostprijsberekening
+        name: 'kostprijsberekening'
+        title: 'Kostprijsberekening'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/innovatie
+        name: 'innovatie'
+        title: 'Innovatie'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/inkoop
+        name: 'inkoop'
+        title: 'Inkoop'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/benchmarking
+        name: 'benchmarking'
+        title: 'Benchmarking'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/anorganisch
+        name: 'anorganisch'
+        title: 'Anorganisch'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/kwaliteitsmanagement
+        name: 'kwaliteitsmanagement'
+        title: 'Kwaliteitsmanagement'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/microbiologie
+        name: 'microbiologie'
+        title: 'Microbiologie'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/hydrobiologie
+        name: 'hydrobiologie'
+        title: 'Hydrobiologie'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/macroparameters-noord
+        name: 'macroparameters-noord'
+        title: 'Macroparameters Noord'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/vergaderstukken/vergaderstukken-stuurgroep
+        name: 'vergaderstukken-stuurgroep'
+        title: 'Vergaderstukken stuurgroep'
+        body: |
+                 <h2>Brief RvA rapportage van meetresultaten</h2>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: top
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: menu
+                        menu: '/cms/menu/terug-naar-vergaderstukken'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/artikelen
+        name: 'artikelen'
+        title: 'Artikelen'
+        body: |
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/unie
+        name: 'unie'
+        title: 'Unie'
+        body: |
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/nen-milieukwaliteit
+        name: 'nen-milieukwaliteit'
+        title: 'NEN Milieukwaliteit'
+        body: |
+            <p></p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+            -
+                name: bottom
+                blocks:
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+
+    -
+        route: /leden/presentaties
+        name: 'presentaties'
+        title: 'Presentaties ILOW'
+        body: |
+            <p></p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'leden-menu'
+                        title: 'Voor de leden'
+                        menu: '/cms/menu/leden-menu'
+                    -
+                        type: 'Document Block'
+                        name: 'documents'
+                        title: 'Documenten voor de leden'
+    -
+        route: /over-ons
+        name: 'over-ons'
+        title: 'Over ons'
+        body: |
+            <p>ILOW is het overlegorgaan van de laboratoria van de waterkwaliteitsbeheerders.</p>
+
+            <p>De vereniging ILOW is het overlegorgaan van de laboratoria van de Nederlandse waterbeheerders.</p>
+
+            <p>De waterbeheerders zijn de 25 waterschappen <a target="_blank" href="http://www.waterschappen.nl">(www.waterschappen.nl)</a> en Rijkswaterstaat <a target="_blank" href="http://www.rws.nl">www.rijkswaterstaat.nl)</a>. Samen beschikken zij over 6 laboratoria die gespecialiseerd zijn in fysisch-chemisch, microbiologisch en hydrobiologisch onderzoek van:</p>
+            <ul>
+            <li>Oppervlaktewater</li>
+            <li>Afvalwater</li>
+            <li>Grondwater</li>
+            <li>Waterbodems</li>
+            <li>Zuiveringsslib</li>
+            <li>Grond</li>
+            </ul>
+            <p>Alle aangesloten laboratoria voldoen aan de accreditatiecriteria voor testlaboratoria zoals vastgelegd in de NEN-EN-ISO/IEC 17025.<br />
+            <br />
+            De vereniging ILOW is het platform waarop de laboratoria afstemming plegen op zowel vakinhoudelijk als organisatorisch gebied. De belangrijkste vakinhoudelijke thema`s zijn de normontwikkeling, methodeontwikkeling en kwaliteitsborging.<br />
+            <br />
+            Op deze terreinen treedt de vereniging ILOW regelmatig op als vertegenwoordiger en spreekbuis van de gezamenlijke laboratoria. Op organisatorisch gebied zijn samenwerking en schaalvergroting de belangrijkste thema`s
+            </p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'about-us-menu'
+                        title: 'Over ons'
+                        menu: '/cms/menu/about-us-menu'
+    -
+        route: /over-ons/contact
+        name: 'contact'
+        title: 'Contact'
+        body: |
+                <p><strong>Secretariaat ILOW</strong><br>
+                <br>
+                p/a Rijkswaterstaat - CIV<br>
+                Dhr. Dr. H. Zemmelink<br>
+                <br>
+                Postbus 17<br>
+                8200 AA Lelystad<br>
+                E-mail: <a href="mailto:henk.zemmelink@rws.nl">henk.zemmelink@rws.nl</a></p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'about-us-menu'
+                        title: 'Over ons'
+                        menu: '/cms/menu/about-us-menu'
+
+    -
+        route: /over-ons/wie-zijn-er-lid
+        name: 'Wie-zijn-er-lid'
+        title: 'Wie zijn er lid'
+        body: |
+                <table  class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td valign="top" width="320">Aquon, Breda</td>
+                            <td valign="top" width="200"><a target="_blank" href="http://www.aquon.nl">www.aquon.nl</a></td>
+                        </tr>
+                        <tr>
+                            <td valign="top">Rijkswaterstaat Centrale InformatieVoorziening, Lelystad</td>
+                            <td valign="top"><a target="_blank" href="http://www.rijkswaterstaat.nl/rws/riza/home/waterdienst/index.html">www.rijkswaterstaat.nl</a></td>
+                        </tr>
+                        <tr>
+                            <td valign="top">Stichting Waterproef, Edam</td>
+                            <td valign="top"><a target="_blank" href="http://www.waterproef.nl">www.waterproef.nl</a></td>
+                        </tr>
+                        <tr>
+                            <td valign="top">Aqualysis, Zwolle</td>
+                            <td valign="top"><a target="_blank" href="http://www.wgs.nl">www.aqualysis.nl</a></td>
+                        </tr>
+                        <tr>
+                            <td valign="top">Waterschap Hunze en Aa`s, Veendam</td>
+                            <td valign="top"><a target="_blank" href="http://www.hunzeenaas.nl">www.hunzeenaas.nl</a></td>
+                        </tr>
+                        <tr>
+                            <td valign="top">Wetterskip Fryslân, Leeuwarden</td>
+                            <td valign="top"><a target="_blank" href="http://www.wetterskipfryslan.nl">www.wetterskipfryslan.nl</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'about-us-menu'
+                        title: 'Over ons'
+                        menu: '/cms/menu/about-us-menu'
+
+    -
+        route: /over-ons/kennis-maken
+        name: 'kennismaken'
+        title: Kennis maken
+        body: |
+            <p>ILOW is het overlegorgaan van de laboratoria van de waterkwaliteitsbeheerders.</p>
+
+            <p>De vereniging ILOW is het overlegorgaan van de laboratoria van de Nederlandse waterbeheerders.</p>
+
+            <p>De waterbeheerders zijn de 25 waterschappen <a target="_blank" href="http://www.waterschappen.nl">(www.waterschappen.nl)</a> en Rijkswaterstaat <a target="_blank" href="http://www.rws.nl">www.rijkswaterstaat.nl)</a>. Samen beschikken zij over 6 laboratoria die gespecialiseerd zijn in fysisch-chemisch, microbiologisch en hydrobiologisch onderzoek van:</p>
+            <ul>
+            <li>Oppervlaktewater</li>
+            <li>Afvalwater</li>
+            <li>Grondwater</li>
+            <li>Waterbodems</li>
+            <li>Zuiveringsslib</li>
+            <li>Grond</li>
+            </ul>
+            <p>Alle aangesloten laboratoria voldoen aan de accreditatiecriteria voor testlaboratoria zoals vastgelegd in de NEN-EN-ISO/IEC 17025.<br />
+            <br />
+            De vereniging ILOW is het platform waarop de laboratoria afstemming plegen op zowel vakinhoudelijk als organisatorisch gebied. De belangrijkste vakinhoudelijke thema`s zijn de normontwikkeling, methodeontwikkeling en kwaliteitsborging.<br />
+            <br />
+            Op deze terreinen treedt de vereniging ILOW regelmatig op als vertegenwoordiger en spreekbuis van de gezamenlijke laboratoria. Op organisatorisch gebied zijn samenwerking en schaalvergroting de belangrijkste thema`s
+            </p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'about-us-menu'
+                        title: 'Over ons'
+                        menu: '/cms/menu/about-us-menu'
+
+    -
+        route: /over-ons/visie-missie
+        name: 'visie-missie'
+        title: 'Visie & missie'
+        body: |
+            <p>
+            De vereniging ILOW is de landelijke organisatie voor afstemming en  samenwerking tussen de waterschapslaboratoria. Daarnaast is het <i><b>de</b></i> belangenbehartiger van de waterschappen als het gaat om  waterkwaliteitsonderzoek en de daarmee samenhangende landelijke en  internationale ontwikkeling van normen, wetten en protocollen.
+            </p>
+            <p>
+            Onze visie is dat de waterschapslaboratoria, verenigd in de ILOW, een essentiële rol vervullen in het monitoren van de kwaliteit van de  Nederlandse wateren. 
+            Daarbij zorgen we niet alleen voor kwalitatief  hoogwaardige metingen, maar vooral ook voor het omzetten van deze  meetgegevens in bruikbare informatie. 
+            Vergeleken met andere laboratoria  zijn we daarin uniek.
+            </p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'about-us-menu'
+                        title: 'Over ons'
+                        menu: '/cms/menu/about-us-menu'
+    -
+        route: /over-ons/structuur
+        name: 'structuur'
+        title: Structuur
+        body: |
+                <p>De `vereniging ILOW` is de landelijke organisatie voor afstemming en samenwerking tussen de waterschapslaboratoria. Daarnaast is het de belangenbehartiger van de waterschappen als het gaat om waterkwaliteitsonderzoek en de daarmee samenhangende landelijke en internationale ontwikkeling van normen, wetten en protocollen.</p>
+                <p>De kern van de vereniging ILOW is het overleg van laboratorium-hoofden. Dit platform kiest uit haar midden een bestuur. Onder het labhoofdenoverleg hangen verschillende permanente en tijdelijke, themagerichte werkgroepen. In deze werkgroepen zitten naast vakdeskundigen altijd één of meer laboratoriumhoofden.</p>
+        containers:
+            -
+                name: sidebar
+                blocks:
+                    -
+                        type: 'Menu Block'
+                        name: 'about-us-menu'
+                        title: 'Over ons'
+                        menu: '/cms/menu/about-us-menu'
+                        
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

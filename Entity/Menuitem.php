@@ -72,7 +72,7 @@ class Menuitem
 
     /**
      * @ORM\ManyToOne(targetEntity="Menu", inversedBy="menuitems")
-     * @ORM\JoinColumn(name="menu_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="menu_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $menu;
     

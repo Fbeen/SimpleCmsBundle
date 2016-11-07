@@ -47,8 +47,7 @@ class Content
     private $enabled = true;
 
     /**
-     * @ORM\ManyToMany(targetEntity="BlockContainer", inversedBy="contents")
-     * @ORM\JoinTable(name="contents_blockcontainers")
+     * @ORM\OneToMany(targetEntity="BlockContainer", mappedBy="content")
      */
     private $blockContainers;
 

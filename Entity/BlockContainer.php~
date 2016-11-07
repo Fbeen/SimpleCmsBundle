@@ -30,12 +30,13 @@ class BlockContainer
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Content", mappedBy="blockContainers")
+     * @ORM\ManyToOne(targetEntity="Content", inversedBy="blockContainers")
+     * @ORM\JoinColumn(name="content_id", referencedColumnName="id", onDelete="CASCADE")
      */
-    private $contents;
+    private $content;
 
     /**
-     * @ORM\OneToMany(targetEntity="Block", mappedBy="blockContainer", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Block", mappedBy="blockContainer", cascade={"persist", "remove"})
      * 
      * @ORM\OrderBy({"sort" = "ASC"})
     */
@@ -43,7 +44,6 @@ class BlockContainer
 
     public function __construct()
     {
-        $this->contents = new ArrayCollection();
         $this->blocks = new ArrayCollection();
     }
 
@@ -82,40 +82,6 @@ class BlockContainer
     }
 
     /**
-     * Add content
-     *
-     * @param \Fbeen\SimpleCmsBundle\Entity\Content $content
-     *
-     * @return BlockContainer
-     */
-    public function addContent(\Fbeen\SimpleCmsBundle\Entity\Content $content)
-    {
-        $this->contents[] = $content;
-
-        return $this;
-    }
-
-    /**
-     * Remove content
-     *
-     * @param \Fbeen\SimpleCmsBundle\Entity\Content $content
-     */
-    public function removeContent(\Fbeen\SimpleCmsBundle\Entity\Content $content)
-    {
-        $this->contents->removeElement($content);
-    }
-
-    /**
-     * Get contents
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getContents()
-    {
-        return $this->contents;
-    }
-
-    /**
      * Add block
      *
      * @param \Fbeen\SimpleCmsBundle\Entity\Block $block
@@ -147,5 +113,29 @@ class BlockContainer
     public function getBlocks()
     {
         return $this->blocks;
+    }
+
+    /**
+     * Set content
+     *
+     * @param \Fbeen\SimpleCmsBundle\Entity\Content $content
+     *
+     * @return BlockContainer
+     */
+    public function setContent(\Fbeen\SimpleCmsBundle\Entity\Content $content = null)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return \Fbeen\SimpleCmsBundle\Entity\Content
+     */
+    public function getContent()
+    {
+        return $this->content;
     }
 }

@@ -45,7 +45,7 @@ class Block
 
     /**
      * @ORM\ManyToOne(targetEntity="BlockContainer", inversedBy="blocks")
-     * @ORM\JoinColumn(name="blockcontainer_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="blockcontainer_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $blockContainer;
 

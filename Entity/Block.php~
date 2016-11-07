@@ -25,13 +25,6 @@ class Block
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=64, unique=true)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="type", type="string", length=64)
      */
     private $type;
@@ -70,30 +63,6 @@ class Block
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Block
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**

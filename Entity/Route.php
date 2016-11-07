@@ -42,7 +42,7 @@ class Route
 
     /**
      * @ORM\ManyToOne(targetEntity="Content")
-     * @ORM\JoinColumn(name="content_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="content_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $content;
 
