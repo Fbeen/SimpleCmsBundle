@@ -197,11 +197,13 @@ EOT
             
             $em->persist($newMenu);
             
+            $sort = 0;
             foreach($menu['menuitems'] as $menuitem)
             {
                 $newMenuitem = new Menuitem();
                 
                 $newMenuitem->setName($menuitem['name']);
+                $newMenuitem->setSort($sort++);
                 
                 if(is_array($menuitem['label']))
                 {
@@ -223,6 +225,8 @@ EOT
                 $newMenuitem->setValue($value);
                 
                 $newMenuitem->setMenu($newMenu);
+                
+                $newMenuitem->mergeNewTranslations();
             
                 $em->persist($newMenuitem);
             }
