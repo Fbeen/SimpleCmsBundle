@@ -53,6 +53,7 @@ menu:
                 label: ' '
                 type: submenu
                 value: login-menu
+                liclass: dropdown
 
     -
         name: login-menu

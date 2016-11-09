@@ -15,7 +15,7 @@ class Builder implements ContainerAwareInterface
     {
         $menuName = $options['fbeen_simple_cms_name'];
 
-        $knpMenu = $factory->createItem('root');
+        $knpMenu = $factory->createItem($menuName);
 
         $knpMenu = $this->buildMenu($menuName, $knpMenu);
 

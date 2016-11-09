@@ -20,8 +20,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'openbaar-menu'
-                        title: 'Openbaar'
-                        menu: '/cms/menu/openbaar-menu'
     -
         route: /openbaar/ilow-symposium-2017
         name: 'ilow-symposium-2017'
@@ -49,8 +47,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'openbaar-menu'
-                        title: 'Openbaar'
-                        menu: '/cms/menu/openbaar-menu'
             -
                 name: bottom
                 blocks:
@@ -72,8 +68,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'openbaar-menu'
-                        title: 'Openbaar'
-                        menu: '/cms/menu/openbaar-menu'
             -
                 name: bottom
                 blocks:
@@ -95,8 +89,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'openbaar-menu'
-                        title: 'Openbaar'
-                        menu: '/cms/menu/openbaar-menu'
             -
                 name: bottom
                 blocks:
@@ -118,8 +110,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'openbaar-menu'
-                        title: 'Openbaar'
-                        menu: '/cms/menu/openbaar-menu'
             -
                 name: bottom
                 blocks:
@@ -141,8 +131,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'openbaar-menu'
-                        title: 'Openbaar'
-                        menu: '/cms/menu/openbaar-menu'
             -
                 name: bottom
                 blocks:
@@ -164,8 +152,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'openbaar-menu'
-                        title: 'Openbaar'
-                        menu: '/cms/menu/openbaar-menu'
             -
                 name: bottom
                 blocks:
@@ -190,8 +176,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
 
     -
         route: /leden/uit-de-oude-doos
@@ -207,8 +191,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: bottom
                 blocks:
@@ -230,15 +212,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: bottom
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: 'menu'
-                        menu: '/cms/menu/vergaderstukken-menu'
+                        name: vergaderstukken-menu
 
     -
         route: /leden/vergaderstukken/algemeen
@@ -253,15 +232,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -283,15 +259,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -313,15 +286,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -343,15 +313,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -373,15 +340,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -403,15 +367,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -433,15 +394,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -463,15 +421,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -493,15 +448,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -523,15 +475,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -553,15 +502,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -584,14 +530,12 @@ content:
                         type: 'Menu Block'
                         name: 'leden-menu'
                         title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -613,15 +557,12 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: top
                 blocks:
                     -
                         type: 'Menu Block'
-                        name: menu
-                        menu: '/cms/menu/terug-naar-vergaderstukken'
+                        name: terug-naar-vergaderstukken
             -
                 name: bottom
                 blocks:
@@ -642,8 +583,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: bottom
                 blocks:
@@ -664,8 +603,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: bottom
                 blocks:
@@ -687,8 +624,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
             -
                 name: bottom
                 blocks:
@@ -710,8 +645,9 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'leden-menu'
-                        title: 'Voor de leden'
-                        menu: '/cms/menu/leden-menu'
+            -
+                name: bottom
+                blocks:
                     -
                         type: 'Document Block'
                         name: 'documents'
@@ -747,8 +683,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'about-us-menu'
-                        title: 'Over ons'
-                        menu: '/cms/menu/about-us-menu'
     -
         route: /over-ons/contact
         name: 'contact'
@@ -769,8 +703,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'about-us-menu'
-                        title: 'Over ons'
-                        menu: '/cms/menu/about-us-menu'
 
     -
         route: /over-ons/wie-zijn-er-lid
@@ -812,8 +744,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'about-us-menu'
-                        title: 'Over ons'
-                        menu: '/cms/menu/about-us-menu'
 
     -
         route: /over-ons/kennis-maken
@@ -846,8 +776,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'about-us-menu'
-                        title: 'Over ons'
-                        menu: '/cms/menu/about-us-menu'
 
     -
         route: /over-ons/visie-missie
@@ -869,8 +797,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'about-us-menu'
-                        title: 'Over ons'
-                        menu: '/cms/menu/about-us-menu'
     -
         route: /over-ons/structuur
         name: 'structuur'
@@ -885,8 +811,6 @@ content:
                     -
                         type: 'Menu Block'
                         name: 'about-us-menu'
-                        title: 'Over ons'
-                        menu: '/cms/menu/about-us-menu'
                         
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

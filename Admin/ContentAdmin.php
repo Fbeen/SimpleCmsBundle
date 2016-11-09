@@ -135,7 +135,7 @@ class ContentAdmin extends AbstractAdmin
         {
             $this->persistBlocks($blockContainer);
             
-            $blockContainer->addContent($content);
+            $blockContainer->setContent($content);
             $em->persist($blockContainer); 
         }
     }
