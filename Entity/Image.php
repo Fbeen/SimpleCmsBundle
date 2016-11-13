@@ -34,11 +34,6 @@ class Image
      */
     private $file;
 
-    public function getHtml()
-    {
-        return '<img src="/uploaded-images/'.$this->getFilename().'">';
-    }
-
     public function getPath()
     {
         return '/uploaded-images/'.$this->getFilename();

@@ -27,6 +27,15 @@ services:
         tags:
             - { name: twig.extension }
     
+    sonata.block.service.clear_cache:
+        class: Fbeen\SimpleCmsBundle\Admin\ClearCacheBlockService
+        arguments:
+            - "Clear Cache"
+            - "@templating"
+            - "@service_container"
+        tags:
+            - { name: sonata.block }
+
     # blockTypes
     fbeen.simple_cms.blocktype_simple_block:
         class: Fbeen\SimpleCmsBundle\Blocks\SimpleBlock
@@ -39,7 +48,7 @@ services:
     # sonata admin services
     fbeen_simple_cms.admin.route:
         class: Fbeen\SimpleCmsBundle\Admin\RouteAdmin
-        arguments: [~, Fbeen\SimpleCmsBundle\Entity\Route, SonataAdminBundle:CRUD]
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\Route, FbeenSimpleCmsBundle:Admin]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Routes }
 
@@ -83,4 +92,4 @@ services:
         class: Fbeen\SimpleCmsBundle\Admin\ImageAdmin
         arguments: [~, Fbeen\SimpleCmsBundle\Entity\Image, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Image }
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Afbeeldingen }

@@ -29,9 +29,8 @@ class ImageAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('filename')
-            ->add('image', 'html')
-            ->add('html', null, array('label' => 'HTML'))
-            ->add('path')
+            ->add('image', 'html', array('label' => 'Afbeelding'))
+            ->add('path', null, array('label' => 'Pad'))
             ->add('_action', null, array(
                 'actions' => array(
                     'delete' => array(),

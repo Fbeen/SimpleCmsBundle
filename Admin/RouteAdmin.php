@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class RouteAdmin extends AbstractAdmin
 {
@@ -65,5 +66,10 @@ class RouteAdmin extends AbstractAdmin
             ->add('controller')
             ->add('content')
         ;
+    }
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->add('clear_cache', 'clearcache');
     }
 }
