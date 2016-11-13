@@ -30,6 +30,7 @@ class RouteAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('name')
             ->add('path')
+            ->add('content')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
