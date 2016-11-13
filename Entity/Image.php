@@ -1,0 +1,110 @@
+<?php
+
+namespace Fbeen\SimpleCmsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Image
+ *
+ * @ORM\Table(name="image")
+ * @ORM\Entity(repositoryClass="Fbeen\SimpleCmsBundle\Repository\ImageRepository")
+ */
+class Image
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="filename", type="string", length=255, unique=true)
+     */
+    private $filename;
+
+    /**
+     * @Assert\File(mimeTypes={ "image/png", "image/jpeg", "image/gif", "image/svg+xml" })
+     */
+    private $file;
+
+    public function getHtml()
+    {
+        return '<img src="/uploaded-images/'.$this->getFilename().'">';
+    }
+
+    public function getPath()
+    {
+        return '/uploaded-images/'.$this->getFilename();
+    }
+
+    public function getImage()
+    {
+        return '<img src="/uploaded-images/'.$this->getFilename().'" style="max-height: 100px;">';
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set filename
+     *
+     * @param string $filename
+     *
+     * @return Image
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Get filename
+     *
+     * @return string
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
+
+    /**
+     * Set file
+     *
+     * @param string $file
+     *
+     * @return Image
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    /**
+     * Get file
+     *
+     * @return string
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+}
+

@@ -78,3 +78,9 @@ services:
         arguments: [~, Fbeen\SimpleCmsBundle\Entity\BlockContainer, FbeenSimpleCmsBundle:BlockContainerAdmin]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: BlockContainer }
+
+    fbeen_simple_cms.admin.image:
+        class: Fbeen\SimpleCmsBundle\Admin\ImageAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\Image, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Image }
