@@ -9,9 +9,16 @@ $ composer require fbeen/simplecmsbunlde
 Then add the bundles to the app/config/AppKernel.php file
 
 ```
+            // ...
+
             // Sonata
-            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            
+            // Ivory CKEditor
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
 
             // Knp Menu
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
@@ -22,23 +29,23 @@ Then add the bundles to the app/config/AppKernel.php file
             // a2lix Translation
             new A2lix\AutoFormBundle\A2lixAutoFormBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
-            
-            // Egeloen ckeditor bundle
-            "egeloen/ckeditor-bundle": "^4.0",
 
             // Fbeen Simple CMS bundle
             new Fbeen\SimpleCmsBundle\FbeenSimpleCmsBundle(),
+            
+            new AppBundle\AppBundle(),
 ```
 Required configuration in app/config/config.yml:
 ```
 sonata_block:
-    default_contexts: [cms]
+    default_contexts: [admin]
     blocks:
         # enable the SonataAdminBundle block
-        sonata.admin.block.admin_list:
-            contexts: [admin]
-            
+        sonata.admin.block.admin_list: ~
+        sonata.block.service.clear_cache: ~
+
 sonata_admin:
+    show_mosaic_button: false
     dashboard:
         groups:
             cms:
@@ -47,8 +54,18 @@ sonata_admin:
                     - fbeen_simple_cms.admin.route
                     - fbeen_simple_cms.admin.content
                     - fbeen_simple_cms.admin.menu
+                    - fbeen_simple_cms.admin.image
                     - fbeen_simple_cms.admin.simple_block_type
-                    
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [main, docs, users, cms]
+            -
+                position: left
+                type: sonata.block.service.clear_cache
+
 ivory_ck_editor:
     default_config: cmf_content
     configs:
