@@ -45,7 +45,7 @@ class SimpleCmsLoader extends Loader
                     '_controller' => $controller,
                 );
 
-                $newRoute = new Route($route->getPath(), $defaults);
+                $newRoute = new Route($route->getRoute(), $defaults);
                 $routeCollection->add($route->getName(), $newRoute);
             }
         }

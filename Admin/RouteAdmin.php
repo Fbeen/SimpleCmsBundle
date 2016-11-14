@@ -29,7 +29,7 @@ class RouteAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('path')
+            ->add('route')
             ->add('content')
             ->add('_action', null, array(
                 'actions' => array(
@@ -49,6 +49,7 @@ class RouteAdmin extends AbstractAdmin
         $formMapper
             ->add('name')
             ->add('path')
+            ->add('useLocale')
             ->add('controller', null, array(
                 'required' => false
             ))
@@ -63,7 +64,8 @@ class RouteAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('name')
-            ->add('path')
+            ->add('route')
+            ->add('useLocale')
             ->add('controller')
             ->add('content')
         ;

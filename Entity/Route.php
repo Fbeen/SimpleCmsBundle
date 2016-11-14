@@ -34,6 +34,13 @@ class Route
     private $path;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="use_locale", type="boolean", options={"default" : 0})
+     */
+    private $useLocale = 0;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="controller", type="string", length=255, nullable=true)
@@ -101,6 +108,22 @@ class Route
      */
     public function getPath()
     {
+        if($this->useLocale)
+            return $this->path;
+        
+        return $this->path;
+    }
+
+    /**
+     * Get route with or without locale
+     *
+     * @return string
+     */
+    public function getRoute()
+    {
+        if($this->useLocale)
+            return '/{_locale}' . $this->path;
+        
         return $this->path;
     }
 
@@ -150,5 +173,29 @@ class Route
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set useLocale
+     *
+     * @param boolean $useLocale
+     *
+     * @return Route
+     */
+    public function setUseLocale($useLocale)
+    {
+        $this->useLocale = $useLocale;
+
+        return $this;
+    }
+
+    /**
+     * Get useLocale
+     *
+     * @return boolean
+     */
+    public function getUseLocale()
+    {
+        return $this->useLocale;
     }
 }

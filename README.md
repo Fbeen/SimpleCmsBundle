@@ -119,4 +119,51 @@ $ bin/console assets:install --symlink
 ```
 ## Usage
 
+## How to load a content in a normal symfony controller
+
+Loading dynamic content is as easy as loading data from each other entity.
+To search content based on its name we can make use of the findCompleteContent method from the ContentRepository.
+The repository will join all other data like the blockContainer and the underlying blocks at once.
+
+Example how to create a homepage with the content of the CMS and additionally some newsitems
+```
+    /**
+     * @Route("/", name="homepage")
+     */
+    public function indexAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $homepage = $em->getRepository('FbeenSimpleCmsBundle:Content')->findCompleteContent('homepage');
+
+        if (!$homepage) {
+            throw $this->createNotFoundException('No homepage configured');
+        }
+
+        $newsitems = $em->getRepository('AppBundle:Newsitem')->findFrontpageNews()->getResult();
+
+        return $this->render('default/index.html.twig', array(
+            'content' => $homepage,
+            'newsitems' => $newsitems,
+        ));
+    }
+```
+
+## multi languages
+
+Imagine that you want a website that supports three languages and that you want to have dutch as default language and english and german as additional languages.
+
+### add a locales parameter under parameters:
+```
+parameters:
+    locale: nl
+    locales: [nl, en, de]
+```
+### Change the a2lix translation form configuration
+```
+a2lix_translation_form:
+    locale_provider: default
+    locales: %locales%
+    # ...
+```
 To be continued

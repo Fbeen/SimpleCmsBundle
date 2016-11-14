@@ -34,6 +34,13 @@ class Route
     private $path;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="use_locale", type="boolean", options={"default" : 0})
+     */
+    private $useLocale = 0;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="controller", type="string", length=255, nullable=true)
