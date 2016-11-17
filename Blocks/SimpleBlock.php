@@ -4,6 +4,7 @@ namespace Fbeen\SimpleCmsBundle\Blocks;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Fbeen\SimpleCmsBundle\Model\BlockInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Description of SimpleBlock
