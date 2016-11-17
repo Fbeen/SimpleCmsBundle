@@ -23,7 +23,7 @@ class BlockExtension extends \Twig_Extension
     public function renderBlockFunction($name, $options = array())
     {
         $helper = $this->container->get('fbeen.simple_cms.content_helper');
-        
+
         if(!$blockContainer = $helper->findBlockContainer($name))
         {
             return NULL;
@@ -32,9 +32,17 @@ class BlockExtension extends \Twig_Extension
         $response = '';
         
         foreach($blockContainer->getBlocks() as $block)
-        {
+        { echo $block->getIdentifier();
             $blockType = $helper->loadBlockType($block->getType());
-            $response .= $blockType->renderBlock($block->getIdentifier(), $options);
+            
+            /* check if there are options given for this identifier */
+            if(isset($options[$block->getIdentifier()])) {
+                $blockType->setOptions($options[$block->getIdentifier()]);
+            } else {
+                $blockType->setOptions(array());
+            }
+            
+            $response .= $blockType->renderBlock($block->getIdentifier());
         }
         
         return $response;

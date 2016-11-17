@@ -8,5 +8,6 @@ namespace Fbeen\SimpleCmsBundle\Model;
  */
 interface BlockInterface
 {
+    public function setOptions($options);
     public function renderBlock($identifier);
 }

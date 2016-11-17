@@ -24,7 +24,6 @@ class ContentAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('name')
-            ->add('enabled')
         ;
     }
 
@@ -35,7 +34,6 @@ class ContentAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('enabled')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -52,8 +50,8 @@ class ContentAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->tab('Algemeen')
-                ->with('Algemeen')
+            ->tab('Global')
+                ->with('Global')
                     ->add('name')
                     ->add('translations', TranslationsType::class, [
                         'label' => FALSE,
@@ -61,7 +59,7 @@ class ContentAdmin extends AbstractAdmin
                         'fields' => [
                             'title' => [
                                 'field_type' => null,
-                                'label' => 'Titel',
+                                'label' => 'Title',
                              ],
                             'body' => [
                                 'field_type' => CKEditorType::class,
@@ -69,7 +67,6 @@ class ContentAdmin extends AbstractAdmin
                              ]
                         ]
                     ])
-                    ->add('enabled')
                 ->end()
             ->end()
             ->tab('Blocks')
@@ -78,9 +75,9 @@ class ContentAdmin extends AbstractAdmin
                         'by_reference' => false,
                         'label' => 'Block containers',
                         'type_options' => array('delete' => true),
-                        'btn_add' => ' Container toevoegen',
+                        'btn_add' => 'Add Container',
                         'required' => false,
-                        'help' => '<br><i class="fa fa-info-circle" aria-hidden="true"></i> Blocks worden in een containerblok geplaatst. Hierdoor is het mogelijk om meerdere blokken onder of naast elkaar te plaatsen en tevens kunt u de volgorde van de blokken in de container bepalen.'
+                        'help' => 'container_help'
 
                     )
                     , array(
@@ -100,7 +97,6 @@ class ContentAdmin extends AbstractAdmin
         $showMapper
             ->add('name')
             ->add('created')
-            ->add('enabled')
         ;
     }
     
@@ -108,7 +104,7 @@ class ContentAdmin extends AbstractAdmin
     {
         $this->persistBlockContainers($content);
         
-        //$menu->mergeNewTranslations();
+        $content->mergeNewTranslations();
     }
 
     public function preUpdate($content)

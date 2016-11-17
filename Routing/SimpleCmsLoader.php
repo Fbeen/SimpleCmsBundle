@@ -28,7 +28,7 @@ class SimpleCmsLoader extends Loader
         
         $em = $this->container->get('doctrine.orm.default_entity_manager');
         
-        $routes = $em->getRepository('FbeenSimpleCmsBundle:Route')->findAll();
+        $routes = $em->getRepository('FbeenSimpleCmsBundle:Route')->findAllEnabled();
 
         if(NULL !== $routes)
         {

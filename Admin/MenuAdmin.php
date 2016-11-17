@@ -83,9 +83,9 @@ class MenuAdmin extends AbstractAdmin
         //$menu->mergeNewTranslations();
     }
 
-    public function preUpdate($accommodation)
+    public function preUpdate($menu)
     {
-        $this->prePersist($accommodation);
+        $this->prePersist($menu);
     }
     
     private function persistMenuitems($menu)
@@ -95,6 +95,7 @@ class MenuAdmin extends AbstractAdmin
         foreach($menu->getMenuitems() as $menuitem)
         {
             $menuitem->setMenu($menu);
+            $menuitem->mergeNewTranslations();
             $em->persist($menuitem); 
         }
     }

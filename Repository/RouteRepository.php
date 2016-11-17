@@ -18,8 +18,16 @@ class RouteRepository extends \Doctrine\ORM\EntityRepository
             LEFT JOIN c.translations t
             LEFT JOIN c.blockContainers bc
             LEFT JOIN bc.blocks b
-            WHERE r.name=:name'
+            WHERE r.name=:name AND r.enabled=1'
         )   ->setParameter('name', $name)
             ->getOneOrNullResult();        
+    }
+    
+    public function findAllEnabled()
+    {
+        return $this->getEntityManager()->createQuery(
+            'SELECT r FROM FbeenSimpleCmsBundle:Route r
+            WHERE r.enabled=1'
+        )   ->getResult();        
     }
 }

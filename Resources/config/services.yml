@@ -27,6 +27,11 @@ services:
         tags:
             - { name: twig.extension }
     
+    fbeen.simple_cms.twig.extension.intl:
+        class:        Twig_Extensions_Extension_Intl
+        tags:
+             - { name: 'twig.extension' }
+             
     sonata.block.service.clear_cache:
         class: Fbeen\SimpleCmsBundle\Admin\ClearCacheBlockService
         arguments:
@@ -43,7 +48,11 @@ services:
     
     fbeen.simple_cms.blocktype_menu_block:
         class: Fbeen\SimpleCmsBundle\Blocks\MenuBlock
-        arguments: ['@knp_menu.helper']
+        arguments: ['@service_container']
+    
+    fbeen.simple_cms.blocktype_news_block:
+        class: Fbeen\SimpleCmsBundle\Blocks\NewsBlock
+        arguments: ['@service_container']
     
     # sonata admin services
     fbeen_simple_cms.admin.route:
@@ -93,3 +102,9 @@ services:
         arguments: [~, Fbeen\SimpleCmsBundle\Entity\Image, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Afbeeldingen }
+
+    fbeen_simple_cms.admin.newsitem:
+        class: Fbeen\SimpleCmsBundle\Admin\NewsitemAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\Newsitem, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: "Nieuwsberichten" }

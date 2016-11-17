@@ -38,7 +38,14 @@ class Route
      *
      * @ORM\Column(name="use_locale", type="boolean", options={"default" : 0})
      */
-    private $useLocale = 0;
+    private $useLocale = false;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="enabled", type="boolean", options={"default" : 1})
+     */
+    private $enabled = true;
 
     /**
      * @var string
@@ -198,4 +205,29 @@ class Route
     {
         return $this->useLocale;
     }
+    
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     *
+     * @return Route
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
 }

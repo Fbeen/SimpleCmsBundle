@@ -19,6 +19,7 @@ class RouteAdmin extends AbstractAdmin
         $datagridMapper
             ->add('name')
             ->add('path')
+            ->add('enabled')
         ;
     }
 
@@ -30,6 +31,7 @@ class RouteAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('name')
             ->add('route')
+            ->add('enabled')
             ->add('content')
             ->add('_action', null, array(
                 'actions' => array(
@@ -49,7 +51,14 @@ class RouteAdmin extends AbstractAdmin
         $formMapper
             ->add('name')
             ->add('path')
-            ->add('useLocale')
+        ;
+
+        if($this->isMultilingual()) {
+            $formMapper->add('useLocale');
+        }
+        
+        $formMapper
+            ->add('enabled')
             ->add('controller', null, array(
                 'required' => false
             ))
@@ -65,7 +74,12 @@ class RouteAdmin extends AbstractAdmin
         $showMapper
             ->add('name')
             ->add('route')
-            ->add('useLocale')
+        ;
+        if($this->isMultilingual()) {
+            $showMapper->add('useLocale');
+        }
+        $showMapper
+            ->add('enabled')
             ->add('controller')
             ->add('content')
         ;
@@ -74,5 +88,24 @@ class RouteAdmin extends AbstractAdmin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->add('clear_cache', 'clearcache');
+    }
+    
+    private function isMultilingual()
+    {
+        $locales = array();
+        if($this->getConfigurationPool()->getContainer()->hasParameter('locales'))
+            $locales = $this->getConfigurationPool()->getContainer()->getParameter('locales');
+        
+        return count($locales) > 1;
+    }
+    
+    public function getNewInstance()
+    {
+        $instance = parent::getNewInstance();
+        
+        if($this->isMultilingual())
+            $instance->setUseLocale(true);
+
+        return $instance;
     }
 }

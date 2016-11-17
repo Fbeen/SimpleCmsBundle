@@ -40,13 +40,6 @@ class Content
     private $created;
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(name="enabled", type="boolean")
-     */
-    private $enabled = true;
-
-    /**
      * @ORM\OneToMany(targetEntity="BlockContainer", mappedBy="content")
      */
     private $blockContainers;
@@ -166,30 +159,6 @@ class Content
     public function getCreated()
     {
         return $this->created;
-    }
-
-    /**
-     * Set enabled
-     *
-     * @param boolean $enabled
-     *
-     * @return Content
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Get enabled
-     *
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
     }
 
     /**

@@ -11,13 +11,14 @@ use Fbeen\SimpleCmsBundle\Model\BlockInterface;
  * @author Frank Beentjes <frankbeen@gmail.com>
  */
 
-class SimpleBlock implements BlockInterface
+class SimpleBlock extends AbstractBlock
 {
-    private $container;
-
-    public function __construct(ContainerInterface $container)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        $this->container = $container;
+        $resolver->setDefaults(array(
+            'template'  => 'FbeenSimpleCmsBundle:Blocks:simple_block.html.twig',
+            'show_title'     => true,
+        ));
     }
 
     public function renderBlock($identifier)
@@ -26,6 +27,6 @@ class SimpleBlock implements BlockInterface
         
         $simpleBlock = $em->getRepository('FbeenSimpleCmsBundle:SimpleBlockType')->findOneBy(array('name' => $identifier));
         
-        return $this->container->get('twig')->render('FbeenSimpleCmsBundle:Blocks:simple_block.html.twig', array('simpleBlock' => $simpleBlock));
+        return $this->container->get('twig')->render($this->options['template'], array('simpleBlock' => $simpleBlock));
     }
 }

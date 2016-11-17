@@ -96,4 +96,14 @@ class MenuitemAdmin extends AbstractAdmin
             ->add('menu')
         ;
     }
+    
+    public function prePersist($menuitem)
+    {
+        $menuitem->mergeNewTranslations();
+    }
+
+    public function preUpdate($menu)
+    {
+        $this->prePersist($menuitem);
+    }
 }

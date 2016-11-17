@@ -3,6 +3,7 @@
 namespace Fbeen\SimpleCmsBundle\Blocks;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Fbeen\SimpleCmsBundle\Model\BlockInterface;
 use Knp\Menu\Twig\Helper;
 
@@ -12,24 +13,22 @@ use Knp\Menu\Twig\Helper;
  * @author Frank Beentjes <frankbeen@gmail.com>
  */
 
-class MenuBlock implements BlockInterface
+class MenuBlock extends AbstractBlock
 {
-    private $helper;
-
-    /**
-     * @param Helper $helper
-     */
-    public function __construct(Helper $helper)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        $this->helper = $helper;
+        $resolver->setDefaults(array(
+            'title'     => null,
+            'title'     => null,
+        ));
     }
 
-    public function renderBlock($identifier, $options = array())
+    public function renderBlock($identifier)
     {
-        $options = array_merge($options, array('fbeen_simple_cms_name' => $identifier));
+        $helper = $this->container->get('knp_menu.helper');
 
-        $menu = $this->helper->get('FbeenSimpleCmsBundle:Builder:cmsMenu', [], $options);
+        $menu = $helper->get('FbeenSimpleCmsBundle:Builder:cmsMenu', [], array('fbeen_simple_cms_name' => $identifier));
 
-        return $this->helper->render($menu);
+        return $helper->render($menu);
     }
 }

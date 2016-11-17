@@ -1,0 +1,4 @@
+{% for newsitem in newsitems %}
+    <h2>{{ newsitem.title }} <small>{{ newsitem.created|localizeddate('medium', 'none', app.request.locale) }}</small></h2>
+    <div class="newsitem">{{ newsitem.body|raw }}</div>
+{% endfor %}

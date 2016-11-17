@@ -39,6 +39,10 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+                ->arrayNode('block_container_names')->defaultValue(array())
+                    ->prototype('scalar')->end()
+                    ->defaultValue(array(0))
+                ->end()
             ->end()
         ;
 

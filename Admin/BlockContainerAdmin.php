@@ -7,6 +7,8 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class BlockContainerAdmin extends AbstractAdmin
 {
@@ -46,14 +48,26 @@ class BlockContainerAdmin extends AbstractAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $options = array('label' => 'Positie in de template');
+        $type = TextType::class;
+
+        $names = $this->getConfigurationPool()->getContainer()->getParameter('fbeen_simple_cms.block_container_names');
+        if(is_array($names) && count($names)) {
+            $type = ChoiceType::class;
+            foreach($names as $name)
+            {
+                $options['choices'][$name] = $name;
+            }
+        }
+        
         $formMapper
-            ->add('name')
+            ->add('name', $type, $options)
             //->add('contents')
             ->add('blocks', 'sonata_type_collection', array(
                 'by_reference' => false,
                 'label' => 'Blocks',
                 'type_options' => array('delete' => true),
-                'btn_add' => ' Blok toevoegen',
+                'btn_add' => 'Add Block',
                 'required' => false,
                 'help' => '<br><i class="fa fa-info-circle" aria-hidden="true"></i> Blocks worden in een containerblok geplaatst. Hierdoor is het mogelijk om meerdere blokken onder of naast elkaar te plaatsen en tevens kunt u de volgorde van de blokken in de container bepalen.'
 
