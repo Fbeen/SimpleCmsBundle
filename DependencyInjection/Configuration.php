@@ -36,6 +36,7 @@ class Configuration implements ConfigurationInterface
                         ->children()
                             ->scalarNode('name')->end()
                             ->scalarNode('class')->end()
+                            ->scalarNode('template')->end()
                         ->end()
                     ->end()
                 ->end()

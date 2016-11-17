@@ -32,7 +32,7 @@ class BlockExtension extends \Twig_Extension
         $response = '';
         
         foreach($blockContainer->getBlocks() as $block)
-        { echo $block->getIdentifier();
+        {
             $blockType = $helper->loadBlockType($block->getType());
             
             /* check if there are options given for this identifier */

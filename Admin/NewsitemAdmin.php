@@ -25,7 +25,7 @@ class NewsitemAdmin extends Admin
         $formMapper
             ->add('translations', TranslationsType::class, [
                 'label' => FALSE,
-                'required' => FALSE,
+                'required' => TRUE,
                 'fields' => [
                     'title' => [
                         'field_type' => null,

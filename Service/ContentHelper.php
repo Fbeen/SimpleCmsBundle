@@ -56,7 +56,13 @@ class ContentHelper
         {
             if($type['name'] == $name)
             {
-                return $this->container->get($type['class']);
+                $block = $this->container->get($type['class']);
+                
+                if(isset($type['template']) && !empty($type['template'])) {
+                    $block->setTemplate($type['template']);
+                }
+                
+                return $block;
             }
         }
         
