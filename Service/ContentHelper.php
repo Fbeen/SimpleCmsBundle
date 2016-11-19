@@ -69,7 +69,7 @@ class ContentHelper
     public function loadBlockType($name)
     {
         $types = $this->container->getParameter('fbeen_simple_cms.block_types');
-        print_r($types);
+
         foreach($types as $type)
         {
             echo $type['name'] . '-' . $name;
