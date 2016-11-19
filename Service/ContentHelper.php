@@ -55,15 +55,7 @@ class ContentHelper
             throw new NotFoundHttpException('No content available. Should you load the content for this route manualy?');
         }
         
-        foreach($this->content->getBlockContainers() as $blockContainer)
-        {
-            if(strcasecmp($name, $blockContainer->getName()) == 0)
-            {
-                return $blockContainer;
-            }
-        }
-        
-        return FALSE;
+        return $this->content->findBlockContainer($name);
     }
     
     public function loadBlockType($name)
@@ -72,7 +64,6 @@ class ContentHelper
 
         foreach($types as $type)
         {
-            echo $type['name'] . '-' . $name;
             if($type['name'] == $name)
             {
                 $block = $this->container->get($type['class']);

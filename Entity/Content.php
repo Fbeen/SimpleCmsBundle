@@ -162,37 +162,23 @@ class Content
     }
 
     /**
-     * Add block
+     * Find a blockContainer
      *
-     * @param \Fbeen\SimpleCmsBundle\Entity\Block $block
+     * @param string $name
      *
-     * @return Content
+     * @return FALSE | \Fbeen\SimpleCmsBundle\Entity\BlockContainer
      */
-    public function addBlock(\Fbeen\SimpleCmsBundle\Entity\Block $block)
+    public function findBlockContainer($name)
     {
-        $this->blocks[] = $block;
+        foreach($this->blockContainers as $blockContainer)
+        {
+            if(strcasecmp($name, $blockContainer->getName()) == 0)
+            {
+                return $blockContainer;
+            }
+        }
 
-        return $this;
-    }
-
-    /**
-     * Remove block
-     *
-     * @param \Fbeen\SimpleCmsBundle\Entity\Block $block
-     */
-    public function removeBlock(\Fbeen\SimpleCmsBundle\Entity\Block $block)
-    {
-        $this->blocks->removeElement($block);
-    }
-
-    /**
-     * Get blocks
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBlocks()
-    {
-        return $this->blocks;
+        return FALSE;
     }
 
     /**
