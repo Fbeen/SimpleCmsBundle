@@ -24,6 +24,9 @@ class ActionListener extends ResponseListener
     {
         $em = $this->container->get('doctrine.orm.default_entity_manager');
         
+        /*
+         * Not all routes are cms routes. We will load the content only if it is a cms route.
+         */
         $route = $em->getRepository('FbeenSimpleCmsBundle:Route')->findRouteWithCompleteContent($event->getRequest()->get('_route'));
 
         if(NULL !== $route)

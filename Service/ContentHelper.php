@@ -3,6 +3,7 @@
 namespace Fbeen\SimpleCmsBundle\Service;
 
 use Symfony\Component\DependencyInjection\ContainerInterface; 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Fbeen\SimpleCmsBundle\Entity\Content;
 
 /**
@@ -14,15 +15,32 @@ class ContentHelper
     private $container;
     private $content;
 
-
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
     
+    /*
+     * Loads a content on the content->name property.
+     */
+    public function loadContent($name)
+    {
+        $em = $this->container->get('doctrine.orm.default_entity_manager');
+                
+        $content = $em->getRepository('FbeenSimpleCmsBundle:Content')->findCompleteContent($name);
+        
+        if(null === $content)
+        {
+            throw new NotFoundHttpException('No content available for "'.$name.'"');
+        }
+        
+        $this->setContent($content);
+    }
+
     public function setContent(Content $content)
     {
         $this->content = $content;
+        $this->container->get('twig')->addGlobal('content', $content);
     }
     
     public function getContent()
@@ -34,7 +52,7 @@ class ContentHelper
     {
         if(NULL === $this->content)
         {
-            return FALSE;
+            throw new NotFoundHttpException('No content available. Should you load the content for this route manualy?');
         }
         
         foreach($this->content->getBlockContainers() as $blockContainer)
@@ -51,9 +69,10 @@ class ContentHelper
     public function loadBlockType($name)
     {
         $types = $this->container->getParameter('fbeen_simple_cms.block_types');
-        
+        print_r($types);
         foreach($types as $type)
         {
+            echo $type['name'] . '-' . $name;
             if($type['name'] == $name)
             {
                 $block = $this->container->get($type['class']);
