@@ -52,7 +52,7 @@ class ContentHelper
     {
         if(NULL === $this->content)
         {
-            throw new NotFoundHttpException('No content available. Should you load the content for this route manualy?');
+            return false;
         }
         
         return $this->content->findBlockContainer($name);
