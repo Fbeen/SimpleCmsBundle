@@ -16,15 +16,28 @@ class BlockExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
+            new \Twig_SimpleFunction('has_block', array($this, 'hasBlockFunction')),
             new \Twig_SimpleFunction('render_block', array($this, 'renderBlockFunction'), array('is_safe' => array('html'))),
         );
     }
 
+    public function hasBlockFunction($name)
+    {
+        $helper = $this->container->get('fbeen.simple_cms.content_helper');
+
+        if(false === $blockContainer = $helper->findBlockContainer($name))
+        {
+            return false;
+        }
+        
+        return true;
+    }
+    
     public function renderBlockFunction($name, $options = array())
     {
         $helper = $this->container->get('fbeen.simple_cms.content_helper');
 
-        if(!$blockContainer = $helper->findBlockContainer($name))
+        if(false === $blockContainer = $helper->findBlockContainer($name))
         {
             return NULL;
         }
