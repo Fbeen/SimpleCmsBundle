@@ -1,0 +1,4 @@
+<div{% if textBlock.class|length %} class="{{ textBlock.class }}"{% endif %}>
+{% if textBlock.show_title %}<h1>{{ textBlock.title }}</h1>{% endif %}
+{{ textBlock.body|raw }}
+</div>

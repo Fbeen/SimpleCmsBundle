@@ -3,6 +3,7 @@
 namespace Fbeen\SimpleCmsBundle\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerInterface; 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class BlockExtension extends \Twig_Extension
 {
@@ -21,30 +22,38 @@ class BlockExtension extends \Twig_Extension
         );
     }
 
-    public function hasBlockFunction($name)
+    public function hasBlockFunction($section)
     {
-        $helper = $this->container->get('fbeen.simple_cms.content_helper');
+        $content = $this->container->get('fbeen.simple_cms.content_helper')->getContent();
 
-        if(false === $blockContainer = $helper->findBlockContainer($name))
+        if($content && count($content->getBlocksForSection($section)))
         {
-            return false;
+            return true;
         }
         
-        return true;
+        return false;
     }
     
     public function renderBlockFunction($name, $options = array())
     {
         $helper = $this->container->get('fbeen.simple_cms.content_helper');
+        
+        if(!$this->validateSectionName($name))
+        {
+            throw new NotFoundHttpException('Block "'.$name.'" is does not exist.');
+        }
+        
+        $content = $helper->getContent();
+        $blocks = $content->getBlocksForSection($name);
 
-        if(false === $blockContainer = $helper->findBlockContainer($name))
+        if(!count($blocks))
         {
             return NULL;
         }
 
         $response = '';
         
-        foreach($blockContainer->getBlocks() as $block)
+        foreach($blocks as $block)
         {
             $blockType = $helper->loadBlockType($block->getType());
             
@@ -59,6 +68,19 @@ class BlockExtension extends \Twig_Extension
         }
         
         return $response;
+    }
+
+    public function validateSectionName($name)
+    {
+        foreach($this->container->getParameter('fbeen_simple_cms.block_container_names') as $section)
+        {
+            if(strcasecmp($section, $name) == 0)
+            {
+                return true;
+            }
+        }
+        
+        return false;
     }
 
     public function getName()

@@ -47,17 +47,7 @@ class ContentHelper
     {
         return $this->content;
     }
-    
-    public function findBlockContainer($name)
-    {
-        if(NULL === $this->content)
-        {
-            return false;
-        }
-        
-        return $this->content->findBlockContainer($name);
-    }
-    
+
     public function loadBlockType($name)
     {
         $types = $this->container->getParameter('fbeen_simple_cms.block_types');

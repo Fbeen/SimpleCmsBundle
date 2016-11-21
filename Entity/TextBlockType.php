@@ -5,12 +5,12 @@ namespace Fbeen\SimpleCmsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * SimpleBlockType
+ * TextBlockType
  *
- * @ORM\Table(name="simple_block_type")
- * @ORM\Entity(repositoryClass="Fbeen\SimpleCmsBundle\Repository\SimpleBlockTypeRepository")
+ * @ORM\Table(name="text_block_type")
+ * @ORM\Entity
  */
-class SimpleBlockType
+class TextBlockType
 {
     /**
      * @var int

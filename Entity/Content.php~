@@ -40,20 +40,13 @@ class Content
     private $created;
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(name="enabled", type="boolean")
+     * @ORM\OneToMany(targetEntity="Block", mappedBy="content")
      */
-    private $enabled = true;
-
-    /**
-     * @ORM\OneToMany(targetEntity="BlockContainer", mappedBy="content")
-     */
-    private $blockContainers;
+    private $blocks;
 
     public function __construct()
     {
-        $this->blockContainers = new ArrayCollection();
+        $this->blocks = new ArrayCollection();
         $this->created = new \DateTime();
     }
     
@@ -166,97 +159,5 @@ class Content
     public function getCreated()
     {
         return $this->created;
-    }
-
-    /**
-     * Set enabled
-     *
-     * @param boolean $enabled
-     *
-     * @return Content
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Get enabled
-     *
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
-    }
-
-    /**
-     * Add block
-     *
-     * @param \Fbeen\SimpleCmsBundle\Entity\Block $block
-     *
-     * @return Content
-     */
-    public function addBlock(\Fbeen\SimpleCmsBundle\Entity\Block $block)
-    {
-        $this->blocks[] = $block;
-
-        return $this;
-    }
-
-    /**
-     * Remove block
-     *
-     * @param \Fbeen\SimpleCmsBundle\Entity\Block $block
-     */
-    public function removeBlock(\Fbeen\SimpleCmsBundle\Entity\Block $block)
-    {
-        $this->blocks->removeElement($block);
-    }
-
-    /**
-     * Get blocks
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBlocks()
-    {
-        return $this->blocks;
-    }
-
-    /**
-     * Add blockContainer
-     *
-     * @param \Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer
-     *
-     * @return Content
-     */
-    public function addBlockContainer(\Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer)
-    {
-        $this->blockContainers[] = $blockContainer;
-
-        return $this;
-    }
-
-    /**
-     * Remove blockContainer
-     *
-     * @param \Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer
-     */
-    public function removeBlockContainer(\Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer)
-    {
-        $this->blockContainers->removeElement($blockContainer);
-    }
-
-    /**
-     * Get blockContainers
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBlockContainers()
-    {
-        return $this->blockContainers;
     }
 }

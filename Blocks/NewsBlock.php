@@ -18,8 +18,9 @@ class NewsBlock extends AbstractBlock
     {
         $resolver->setDefaults(array(
             'template'  => 'FbeenSimpleCmsBundle:Blocks:news_block.html.twig',
+            'class' => 'newsblock',
             'homepage'  => false,
-            'title'     => 'news',
+            'title'     => null,
         ));
     }
 
@@ -34,6 +35,12 @@ class NewsBlock extends AbstractBlock
             $items = $em->getRepository('FbeenSimpleCmsBundle:Newsitem')->findAllActive()->getResult();
         }
         
-        return $this->container->get('twig')->render($this->options['template'], array('newsitems' => $items));
+        return $this->container->get('twig')->render($this->options['template'], array(
+            'newsBlock' => array(
+                'class' => $this->options['class'],
+                'title' => $this->options['title'],
+                'newsitems' => $items
+            )
+        ));
     }
 }

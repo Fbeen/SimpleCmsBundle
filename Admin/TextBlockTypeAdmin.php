@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
-class SimpleBlockTypeAdmin extends AbstractAdmin
+class TextBlockTypeAdmin extends AbstractAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper

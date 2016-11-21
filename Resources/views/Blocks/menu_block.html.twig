@@ -1,5 +1,6 @@
-{% if title|length %}
-    <h1>{{ title }}</h1>
+<div{% if menuBlock.class|length %} class="{{ menuBlock.class }}"{% endif %}>
+{% if menuBlock.title|length %}
+<h1>{{ menuBlock.title }}</h1>
 {% endif %}
-
-{{ menu|raw }}
+{{ menuBlock.menu|raw }}
+</div>

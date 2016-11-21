@@ -40,13 +40,14 @@ class Content
     private $created;
 
     /**
-     * @ORM\OneToMany(targetEntity="BlockContainer", mappedBy="content")
+     * @ORM\OneToMany(targetEntity="Block", mappedBy="content", cascade={"remove"}, orphanRemoval=true)
+     * @ORM\OrderBy({"section" = "ASC", "sort" = "ASC"})
      */
-    private $blockContainers;
+    private $blocks;
 
     public function __construct()
     {
-        $this->blockContainers = new ArrayCollection();
+        $this->blocks = new ArrayCollection();
         $this->created = new \DateTime();
     }
     
@@ -162,56 +163,55 @@ class Content
     }
 
     /**
-     * Find a blockContainer
+     * Add block
      *
-     * @param string $name
-     *
-     * @return FALSE | \Fbeen\SimpleCmsBundle\Entity\BlockContainer
-     */
-    public function findBlockContainer($name)
-    {
-        foreach($this->blockContainers as $blockContainer)
-        {
-            if(strcasecmp($name, $blockContainer->getName()) == 0)
-            {
-                return $blockContainer;
-            }
-        }
-
-        return FALSE;
-    }
-
-    /**
-     * Add blockContainer
-     *
-     * @param \Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer
+     * @param \Fbeen\SimpleCmsBundle\Entity\Block $block
      *
      * @return Content
      */
-    public function addBlockContainer(\Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer)
+    public function addBlock(\Fbeen\SimpleCmsBundle\Entity\Block $block)
     {
-        $this->blockContainers[] = $blockContainer;
+        $this->blocks[] = $block;
 
         return $this;
     }
 
     /**
-     * Remove blockContainer
+     * Remove block
      *
-     * @param \Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer
+     * @param \Fbeen\SimpleCmsBundle\Entity\Block $block
      */
-    public function removeBlockContainer(\Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer)
+    public function removeBlock(\Fbeen\SimpleCmsBundle\Entity\Block $block)
     {
-        $this->blockContainers->removeElement($blockContainer);
+        $this->blocks->removeElement($block);
     }
 
     /**
-     * Get blockContainers
+     * Get blocks
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getBlockContainers()
+    public function getBlocks()
     {
-        return $this->blockContainers;
+        return $this->blocks;
+    }
+
+    /**
+     * Get blocks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlocksForSection($section)
+    {
+        $blocks = new ArrayCollection();
+        
+        foreach($this->blocks as $block)
+        {
+            if(strcasecmp($block->getSection(), $section) == 0)
+            {
+                $blocks->add($block);
+            }
+        }
+        return $blocks;
     }
 }

@@ -8,8 +8,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Block
  *
- * @ORM\Table(name="block")
- * @ORM\Entity(repositoryClass="Fbeen\SimpleCmsBundle\Repository\BlockRepository")
+ * @ORM\Table(name="blocks")
+ * @ORM\Entity
  */
 class Block
 {
@@ -32,6 +32,13 @@ class Block
     /**
      * @var string
      *
+     * @ORM\Column(name="section", type="string", length=64)
+     */
+    private $section;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="identifier", type="string", length=64, nullable=true)
      */
     private $identifier;
@@ -44,10 +51,10 @@ class Block
     private $sort = 999;
 
     /**
-     * @ORM\ManyToOne(targetEntity="BlockContainer", inversedBy="blocks")
-     * @ORM\JoinColumn(name="blockcontainer_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="Content", inversedBy="blocks")
+     * @ORM\JoinColumn(name="content_id", referencedColumnName="id", onDelete="CASCADE")
      */
-    private $blockContainer;
+    private $content;
 
 
     public function __toString()
@@ -138,26 +145,50 @@ class Block
     }
 
     /**
-     * Set blockContainer
+     * Set content
      *
-     * @param \Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer
+     * @param \Fbeen\SimpleCmsBundle\Entity\Content $content
      *
      * @return Block
      */
-    public function setBlockContainer(\Fbeen\SimpleCmsBundle\Entity\BlockContainer $blockContainer = null)
+    public function setContent(\Fbeen\SimpleCmsBundle\Entity\Content $content = null)
     {
-        $this->blockContainer = $blockContainer;
+        $this->content = $content;
 
         return $this;
     }
 
     /**
-     * Get blockContainer
+     * Get content
      *
-     * @return \Fbeen\SimpleCmsBundle\Entity\BlockContainer
+     * @return \Fbeen\SimpleCmsBundle\Entity\Content
      */
-    public function getBlockContainer()
+    public function getContent()
     {
-        return $this->blockContainer;
+        return $this->content;
+    }
+
+    /**
+     * Set section
+     *
+     * @param string $section
+     *
+     * @return Block
+     */
+    public function setSection($section)
+    {
+        $this->section = $section;
+
+        return $this;
+    }
+
+    /**
+     * Get section
+     *
+     * @return string
+     */
+    public function getSection()
+    {
+        return $this->section;
     }
 }

@@ -10,9 +10,18 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Fbeen\SimpleCmsBundle\Entity\Content;
+use Fbeen\SimpleCmsBundle\Entity\BlockContainer;
 
 class ContentAdmin extends AbstractAdmin
 {
+    public function getNewInstance()
+    {
+        $content = parent::getNewInstance();
+        $instance->setName('my default value');
+
+        return $instance;
+    }
+
     public function configure() {
         $this->setTemplate('edit', 'FbeenSimpleCmsBundle:Admin:edit_menu.html.twig');
     }
@@ -43,7 +52,7 @@ class ContentAdmin extends AbstractAdmin
             ))
         ;
     }
-
+    
     /**
      * @param FormMapper $formMapper
      */
@@ -70,25 +79,29 @@ class ContentAdmin extends AbstractAdmin
                 ->end()
             ->end()
             ->tab('Blocks')
-                ->with('Container blocks')
-                    ->add('blockContainers', 'sonata_type_collection', array(
-                        'by_reference' => false,
-                        'label' => 'Block containers',
+        ;
+        
+            $formMapper
+                ->with('Blocks')
+                    ->add('blocks', 'sonata_type_collection', array(
+                        'label' => 'Blocks',
                         'type_options' => array('delete' => true),
-                        'btn_add' => 'Add Container',
+                        'btn_add' => 'Add Block',
                         'required' => false,
                         'help' => 'container_help'
 
                     )
                     , array(
                         'edit' => 'inline',
-                        'inline' => 'table'
+                        'inline' => 'table',
+                        'sortable' => 'dummy'
                     ))
                 ->end()
-            ->end()
-        ;
+            ;
+        
+        $formMapper->end();
     }
-
+    
     /**
      * @param ShowMapper $showMapper
      */
@@ -102,7 +115,7 @@ class ContentAdmin extends AbstractAdmin
     
     public function prePersist($content)
     {
-        $this->persistBlockContainers($content);
+        $this->persistBlocks($content);
         
         $content->mergeNewTranslations();
     }
@@ -112,27 +125,14 @@ class ContentAdmin extends AbstractAdmin
         $this->prePersist($content);
     }
     
-    private function persistBlocks($blockContainer)
+    private function persistBlocks($content)
     {
         $em = $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager');
 
-        foreach($blockContainer->getBlocks() as $block)
+        foreach($content->getBlocks() as $block)
         {
-            $block->setBlockContainer($blockContainer);
+            $block->setContent($content);
             $em->persist($block); 
-        }
-    }
-    
-    private function persistBlockContainers($content)
-    {
-        $em = $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager');
-
-        foreach($content->getBlockContainers() as $blockContainer)
-        {
-            $this->persistBlocks($blockContainer);
-            
-            $blockContainer->setContent($content);
-            $em->persist($blockContainer); 
         }
     }
 }

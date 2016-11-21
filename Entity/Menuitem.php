@@ -9,7 +9,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  * Menuitem
  *
  * @ORM\Table(name="menuitem")
- * @ORM\Entity(repositoryClass="Fbeen\SimpleCmsBundle\Repository\MenuitemRepository")
+ * @ORM\Entity
  */
 class Menuitem
 {

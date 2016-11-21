@@ -19,6 +19,7 @@ class MenuBlock extends AbstractBlock
     {
         $resolver->setDefaults(array(
             'template'  => 'FbeenSimpleCmsBundle:Blocks:menu_block.html.twig',
+            'class' => 'menublock',
             'title'     => null,
         ));
     }
@@ -31,8 +32,11 @@ class MenuBlock extends AbstractBlock
         $menu = $helper->render($menu);
         
         return $this->container->get('twig')->render($this->options['template'], array(
-            'title' => $this->options['title'],
-            'menu' => $menu
+            'menuBlock' => array(
+                'class' => $this->options['class'],
+                'title' => $this->options['title'],
+                'menu' => $menu
+            )
         ));
     }
 }

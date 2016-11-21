@@ -13,10 +13,9 @@ class ContentRepository extends \Doctrine\ORM\EntityRepository
     public function findCompleteContent($name)
     {
         return $this->getEntityManager()->createQuery(
-            'SELECT c, t, bc, b FROM FbeenSimpleCmsBundle:Content c
+            'SELECT c, t, b FROM FbeenSimpleCmsBundle:Content c
             LEFT JOIN c.translations t
-            LEFT JOIN c.blockContainers bc
-            LEFT JOIN bc.blocks b
+            LEFT JOIN c.blocks b
             WHERE c.name=:name'
         )   ->setParameter('name', $name)
             ->getOneOrNullResult();        

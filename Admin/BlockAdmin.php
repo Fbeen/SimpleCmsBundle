@@ -34,6 +34,7 @@ class BlockAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('section')
             ->add('type')
             ->add('identifier')
             ->add('_action', null, array(
@@ -62,7 +63,20 @@ class BlockAdmin extends AbstractAdmin
             $blockChoices[$block['name']] = $block['name'];
         }
         
+        $names = $this->getConfigurationPool()->getContainer()->getParameter('fbeen_simple_cms.block_container_names');
+        
+        $sectionChoices = array();
+
+        foreach($names as $name)
+        {
+            $sectionChoices[$name] = $name;
+        }
+
         $formMapper
+            ->add('section', ChoiceType::class, array(
+                'label' => 'Positie in de template',
+                'choices' => $sectionChoices
+            ))
             ->add('type', ChoiceType::class, array(
                 'choices' => $blockChoices
             ))

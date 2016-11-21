@@ -1,4 +1,7 @@
-{% for newsitem in newsitems %}
+<div{% if newsBlock.class|length %} class="{{ newsBlock.class }}"{% endif %}>
+{% if newsBlock.title|length %}<h1>{{ newsBlock.title }}</h1>{% endif %}
+{% for newsitem in newsBlock.newsitems %}
     <h2>{{ newsitem.title }} <small>{{ newsitem.created|localizeddate('medium', 'none', app.request.locale) }}</small></h2>
     <div class="newsitem">{{ newsitem.body|raw }}</div>
 {% endfor %}
+</div>

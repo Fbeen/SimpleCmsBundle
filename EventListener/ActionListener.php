@@ -22,6 +22,7 @@ class ActionListener extends ResponseListener
 
     public function onKernelRequest(FilterControllerArgumentsEvent $event)
     {
+
         $em = $this->container->get('doctrine.orm.default_entity_manager');
         
         /*
