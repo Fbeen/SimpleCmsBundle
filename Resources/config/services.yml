@@ -9,6 +9,10 @@ services:
         class: Fbeen\SimpleCmsBundle\Service\ContentHelper
         arguments: ['@service_container']
 
+    fbeen.simple_cms.route_helper:
+        class: Fbeen\SimpleCmsBundle\Service\RouteHelper
+        arguments: ['@service_container']
+
     fbeen.simple_cms.action_listener:
         class: Fbeen\SimpleCmsBundle\EventListener\ActionListener
         arguments: ['@service_container']

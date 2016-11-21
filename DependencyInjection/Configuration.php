@@ -42,7 +42,11 @@ class Configuration implements ConfigurationInterface
                 ->end()
                 ->arrayNode('block_container_names')->defaultValue(array())
                     ->prototype('scalar')->end()
-                    ->defaultValue(array(0))
+                    ->defaultValue(array())
+                ->end()
+                ->arrayNode('route_filters')->defaultValue(array())
+                    ->prototype('scalar')->end()
+                    ->defaultValue(array('_', 'admin', 'sonata'))
                 ->end()
             ->end()
         ;

@@ -53,6 +53,8 @@ class MenuitemAdmin extends AbstractAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        //$routes = $this->getConfigurationPool()->getContainer()->get('fbeen.simple_cms.route_helper')->getFilteredRouteList();
+        
         $formMapper
             ->add('name')
             ->add('translations', TranslationsType::class, [
