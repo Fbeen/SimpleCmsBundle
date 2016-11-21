@@ -14,14 +14,6 @@ use Fbeen\SimpleCmsBundle\Entity\BlockContainer;
 
 class ContentAdmin extends AbstractAdmin
 {
-    public function getNewInstance()
-    {
-        $content = parent::getNewInstance();
-        $instance->setName('my default value');
-
-        return $instance;
-    }
-
     public function configure() {
         $this->setTemplate('edit', 'FbeenSimpleCmsBundle:Admin:edit_menu.html.twig');
     }
