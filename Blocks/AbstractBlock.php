@@ -36,7 +36,7 @@ abstract class AbstractBlock implements BlockInterface
         $this->configureOptions($resolver);
         
         /* overwrite template settings in config.yml */
-        $options = array_merge($options, $this->options);
+        $options = array_merge($this->options, $options);
         
         $this->options = $resolver->resolve($options);
     }

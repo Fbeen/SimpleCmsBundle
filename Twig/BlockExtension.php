@@ -52,17 +52,14 @@ class BlockExtension extends \Twig_Extension
         }
 
         $response = '';
-        
+
         foreach($blocks as $block)
         {
+            $blockOptions = $this->getOptionsForBlock($options, $block->getIdentifier());
+            
             $blockType = $helper->loadBlockType($block->getType());
             
-            /* check if there are options given for this identifier */
-            if(isset($options[$block->getIdentifier()])) {
-                $blockType->setOptions($options[$block->getIdentifier()]);
-            } else {
-                $blockType->setOptions(array());
-            }
+            $blockType->setOptions($blockOptions);
             
             $response .= $blockType->renderBlock($block->getIdentifier());
         }
@@ -70,6 +67,17 @@ class BlockExtension extends \Twig_Extension
         return $response;
     }
 
+    private function getOptionsForBlock($allOptions, $identifier)
+    {
+        foreach($allOptions as $id => $options)
+        {
+            if(strcasecmp($id, $identifier) == 0)
+                return $options;
+        }
+        
+        return array();
+    }
+    
     public function validateSectionName($name)
     {
         foreach($this->container->getParameter('fbeen_simple_cms.block_container_names') as $section)
