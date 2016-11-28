@@ -54,6 +54,10 @@ services:
         class: Fbeen\SimpleCmsBundle\Blocks\ImageBlock
         arguments: ['@service_container']
     
+    fbeen.simple_cms.blocktype_slider_block:
+        class: Fbeen\SimpleCmsBundle\Blocks\SliderBlock
+        arguments: ['@service_container']
+    
     fbeen.simple_cms.blocktype_menu_block:
         class: Fbeen\SimpleCmsBundle\Blocks\MenuBlock
         arguments: ['@service_container']
@@ -110,3 +114,9 @@ services:
         arguments: [~, Fbeen\SimpleCmsBundle\Entity\Newsitem, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: "Nieuwsberichten" }
+
+    fbeen_simple_cms.admin.slider:
+        class: Fbeen\SimpleCmsBundle\Admin\SliderAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\Slider, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Sliders }

@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Block
  *
  * @ORM\Table(name="blocks")
- * @ORM\Entity(repositoryClass="Fbeen\SimpleCmsBundle\Repository\BlockRepository")
+ * @ORM\Entity
  */
 class Block
 {
@@ -166,5 +166,29 @@ class Block
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set section
+     *
+     * @param string $section
+     *
+     * @return Block
+     */
+    public function setSection($section)
+    {
+        $this->section = $section;
+
+        return $this;
+    }
+
+    /**
+     * Get section
+     *
+     * @return string
+     */
+    public function getSection()
+    {
+        return $this->section;
     }
 }

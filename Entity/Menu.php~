@@ -39,7 +39,7 @@ class Menu
     private $class;
 
     /**
-     * @ORM\OneToMany(targetEntity="Menuitem", mappedBy="menu", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Menuitem", mappedBy="menu", cascade={"persist"}, orphanRemoval=true)
      * 
      * @ORM\OrderBy({"sort" = "ASC"})
      */

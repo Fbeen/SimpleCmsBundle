@@ -44,6 +44,12 @@ class BlockExtension extends \Twig_Extension
         }
         
         $content = $helper->getContent();
+
+        if(null === $content)
+        {
+            return NULL;
+        }
+
         $blocks = $content->getBlocksForSection($name);
 
         if(!count($blocks))

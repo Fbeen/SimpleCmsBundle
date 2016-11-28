@@ -40,7 +40,8 @@ class Content
     private $created;
 
     /**
-     * @ORM\OneToMany(targetEntity="Block", mappedBy="content")
+     * @ORM\OneToMany(targetEntity="Block", mappedBy="content", cascade={"remove"}, orphanRemoval=true)
+     * @ORM\OrderBy({"section" = "ASC", "sort" = "ASC"})
      */
     private $blocks;
 
@@ -159,5 +160,58 @@ class Content
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * Add block
+     *
+     * @param \Fbeen\SimpleCmsBundle\Entity\Block $block
+     *
+     * @return Content
+     */
+    public function addBlock(\Fbeen\SimpleCmsBundle\Entity\Block $block)
+    {
+        $this->blocks[] = $block;
+
+        return $this;
+    }
+
+    /**
+     * Remove block
+     *
+     * @param \Fbeen\SimpleCmsBundle\Entity\Block $block
+     */
+    public function removeBlock(\Fbeen\SimpleCmsBundle\Entity\Block $block)
+    {
+        $this->blocks->removeElement($block);
+    }
+
+    /**
+     * Get blocks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlocks()
+    {
+        return $this->blocks;
+    }
+
+    /**
+     * Get blocks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlocksForSection($section)
+    {
+        $blocks = new ArrayCollection();
+        
+        foreach($this->blocks as $block)
+        {
+            if(strcasecmp($block->getSection(), $section) == 0)
+            {
+                $blocks->add($block);
+            }
+        }
+        return $blocks;
     }
 }
