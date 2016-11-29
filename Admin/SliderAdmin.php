@@ -27,6 +27,9 @@ class SliderAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('identifier')
+            ->add('timeout', null, array('label' => 'slider.timeout'))
+            ->add('pause', null, array('label' => 'slider.pause'))
+            ->add('wrap', null, array('label' => 'slider.wrap'))
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -44,6 +47,9 @@ class SliderAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('identifier')
+            ->add('timeout', null, array('label' => 'slider.timeout'))
+            ->add('pause', null, array('label' => 'slider.pause'))
+            ->add('wrap', null, array('label' => 'slider.wrap'))
             ->add('images')
         ;
     }
@@ -55,6 +61,10 @@ class SliderAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('identifier')
+            ->add('timeout', null, array('label' => 'slider.timeout'))
+            ->add('pause', null, array('label' => 'slider.pause'))
+            ->add('wrap', null, array('label' => 'slider.wrap'))
+            ->add('images')
         ;
     }
 }

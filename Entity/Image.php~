@@ -43,6 +43,11 @@ class Image
     {
         return '<img src="/uploaded-images/'.$this->getFilename().'" style="max-height: 100px;">';
     }
+    
+    public function __toString()
+    {
+        return $this->filename;
+    }
 
     /**
      * Get id

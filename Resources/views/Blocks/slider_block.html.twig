@@ -1,4 +1,4 @@
-<div id="carousel-{{ sliderBlock.identifier }}" class="carousel slide" data-ride="carousel">
+<div id="carousel-{{ sliderBlock.identifier }}" class="carousel slide" data-ride="carousel" data-interval="{{ sliderBlock.timeout }}"{% if not sliderBlock.pause %} data-pause="false"{% endif %}{% if not sliderBlock.wrap %} data-wrap="false"{% endif %}>
     <!-- Indicators -->
     <ol class="carousel-indicators">
         {% for image in sliderBlock.images %}

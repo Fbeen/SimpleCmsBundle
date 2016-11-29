@@ -30,6 +30,27 @@ class Slider
     private $identifier;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="timeout", type="integer")
+     */
+    private $timeout = 10000;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="pause", type="boolean")
+     */
+    private $pause = true;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="wrap", type="boolean")
+     */
+    private $wrap = true;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Image")
      * @ORM\JoinTable(name="sliders_images",
      *      joinColumns={@ORM\JoinColumn(name="slider_id", referencedColumnName="id")},
@@ -112,5 +133,77 @@ class Slider
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Set timeout
+     *
+     * @param integer $timeout
+     *
+     * @return Slider
+     */
+    public function setTimeout($timeout)
+    {
+        $this->timeout = $timeout;
+
+        return $this;
+    }
+
+    /**
+     * Get timeout
+     *
+     * @return integer
+     */
+    public function getTimeout()
+    {
+        return $this->timeout;
+    }
+
+    /**
+     * Set pause
+     *
+     * @param boolean $pause
+     *
+     * @return Slider
+     */
+    public function setPause($pause)
+    {
+        $this->pause = $pause;
+
+        return $this;
+    }
+
+    /**
+     * Get pause
+     *
+     * @return boolean
+     */
+    public function getPause()
+    {
+        return $this->pause;
+    }
+
+    /**
+     * Set wrap
+     *
+     * @param boolean $wrap
+     *
+     * @return Slider
+     */
+    public function setWrap($wrap)
+    {
+        $this->wrap = $wrap;
+
+        return $this;
+    }
+
+    /**
+     * Get wrap
+     *
+     * @return boolean
+     */
+    public function getWrap()
+    {
+        return $this->wrap;
     }
 }
