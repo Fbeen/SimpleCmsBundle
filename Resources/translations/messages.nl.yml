@@ -15,3 +15,4 @@ slider.timeout: Interval in milliseconden
 slider.pause: Pauzeren bij muis over de afbeelding
 slider.wrap: Oneindige lus
 Images: foto's
+image.filter.label: Foto's met label

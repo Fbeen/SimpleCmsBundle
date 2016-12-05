@@ -54,6 +54,10 @@ services:
         class: Fbeen\SimpleCmsBundle\Blocks\ImageBlock
         arguments: ['@service_container']
     
+    fbeen.simple_cms.blocktype_album_block:
+        class: Fbeen\SimpleCmsBundle\Blocks\AlbumBlock
+        arguments: ['@service_container']
+    
     fbeen.simple_cms.blocktype_slider_block:
         class: Fbeen\SimpleCmsBundle\Blocks\SliderBlock
         arguments: ['@service_container']
@@ -120,3 +124,9 @@ services:
         arguments: [~, Fbeen\SimpleCmsBundle\Entity\Slider, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Sliders }
+
+    fbeen_simple_cms.admin.image_tag:
+        class: Fbeen\SimpleCmsBundle\Admin\ImageTagAdmin
+        arguments: [~, Fbeen\SimpleCmsBundle\Entity\ImageTag, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: ImageTag }

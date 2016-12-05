@@ -1,0 +1,9 @@
+<div class="row">
+    {% for image in albumBlock.images %}
+        <div class="col-sm-3 col-xs-6">
+            <a href="{{ image.getPath }}" class="popup-image">
+                <img src="{{ image.getPath }}" style="width: 100%; margin-bottom: 30px;">
+            </a>
+        </div>
+    {% endfor %}
+</div>

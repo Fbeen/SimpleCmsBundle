@@ -4,6 +4,7 @@ namespace Fbeen\SimpleCmsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Image
@@ -33,6 +34,17 @@ class Image
      * @Assert\File(mimeTypes={ "image/png", "image/jpeg", "image/gif", "image/svg+xml" })
      */
     private $file;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="ImageTag", inversedBy="images")
+     * @ORM\JoinTable(name="images_tags")
+     */
+    private $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     public function getPath()
     {

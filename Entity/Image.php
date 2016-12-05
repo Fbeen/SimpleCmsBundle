@@ -4,12 +4,13 @@ namespace Fbeen\SimpleCmsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Image
  *
  * @ORM\Table(name="image")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Fbeen\SimpleCmsBundle\Repository\ImageRepository")
  */
 class Image
 {
@@ -33,6 +34,17 @@ class Image
      * @Assert\File(mimeTypes={ "image/png", "image/jpeg", "image/gif", "image/svg+xml" })
      */
     private $file;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="ImageTag", inversedBy="images")
+     * @ORM\JoinTable(name="images_tags")
+     */
+    private $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     public function getPath()
     {
@@ -105,5 +117,39 @@ class Image
     public function getFile()
     {
         return $this->file;
+    }
+
+    /**
+     * Add tag
+     *
+     * @param \Fbeen\SimpleCmsBundle\Entity\ImageTag $tag
+     *
+     * @return Image
+     */
+    public function addTag(\Fbeen\SimpleCmsBundle\Entity\ImageTag $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \Fbeen\SimpleCmsBundle\Entity\ImageTag $tag
+     */
+    public function removeTag(\Fbeen\SimpleCmsBundle\Entity\ImageTag $tag)
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }

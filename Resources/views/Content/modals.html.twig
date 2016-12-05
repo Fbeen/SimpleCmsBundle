@@ -1,0 +1,24 @@
+<div id="imagemodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-button">
+                <a href="#" class="close-button-link"><img src="{{ asset('bundles/fbeensimplecms/images/close-button.png') }}"></a>
+            </div>
+            <div class="modal-body">
+                <img src="" id="imagepreview" style="width: 100%;" >
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".popup-image").on("click", function(event) {
+         event.preventDefault();
+        $('#imagepreview').attr('src', $(this).attr('href'));
+        $('#imagemodal').modal('show');
+    });
+    $(".close-button-link").on("click", function(event) {
+        event.preventDefault();
+        $('#imagemodal').modal('hide');
+    });
+</script>

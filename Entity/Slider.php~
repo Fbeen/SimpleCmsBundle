@@ -32,9 +32,9 @@ class Slider
     /**
      * @var integer
      *
-     * @ORM\Column(name="interval", type="integer")
+     * @ORM\Column(name="timeout", type="integer")
      */
-    private $interval = 10000;
+    private $timeout = 10000;
 
     /**
      * @var boolean
@@ -133,5 +133,77 @@ class Slider
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Set timeout
+     *
+     * @param integer $timeout
+     *
+     * @return Slider
+     */
+    public function setTimeout($timeout)
+    {
+        $this->timeout = $timeout;
+
+        return $this;
+    }
+
+    /**
+     * Get timeout
+     *
+     * @return integer
+     */
+    public function getTimeout()
+    {
+        return $this->timeout;
+    }
+
+    /**
+     * Set pause
+     *
+     * @param boolean $pause
+     *
+     * @return Slider
+     */
+    public function setPause($pause)
+    {
+        $this->pause = $pause;
+
+        return $this;
+    }
+
+    /**
+     * Get pause
+     *
+     * @return boolean
+     */
+    public function getPause()
+    {
+        return $this->pause;
+    }
+
+    /**
+     * Set wrap
+     *
+     * @param boolean $wrap
+     *
+     * @return Slider
+     */
+    public function setWrap($wrap)
+    {
+        $this->wrap = $wrap;
+
+        return $this;
+    }
+
+    /**
+     * Get wrap
+     *
+     * @return boolean
+     */
+    public function getWrap()
+    {
+        return $this->wrap;
     }
 }

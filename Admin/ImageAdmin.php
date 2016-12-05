@@ -18,7 +18,7 @@ class ImageAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('filename')
+            ->add('tags', null, array('show_filter' => true, 'label' => 'image.filter.label', 'advanced_filter' => false))
         ;
     }
 
@@ -44,8 +44,18 @@ class ImageAdmin extends AbstractAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $required = true;
+        
+        if(null !== $this->getSubject()->getFilename())
+        {
+            $required = false;
+        }
+        
         $formMapper
-            ->add('file', FileType::class)
+            ->add('file', FileType::class, array(
+                'required' => $required
+            ))
+            ->add('tags', 'sonata_type_model', array('by_reference' => false, 'multiple' => true, 'btn_add' => 'Nieuw label'))
         ;
     }
 

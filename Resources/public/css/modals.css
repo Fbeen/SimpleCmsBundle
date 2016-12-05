@@ -1,0 +1,13 @@
+
+.modal-content {
+    position: relative;
+}
+
+.modal-content .close-button {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 32px;
+    height: 32px;
+    z-index: 5000;
+}

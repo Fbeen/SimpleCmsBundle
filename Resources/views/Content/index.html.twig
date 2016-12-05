@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/fbeensimplecms/css/modals.css') }}" rel="stylesheet">
+{% endblock %}
+
+
 {% block body %}
     <div class="container">
         <h1>{{ content.title }}</h1>
 
         {{ content.body|raw }}
     </div>
+        
+    {% include 'FbeenSimpleCmsBundle:Content:modals.html.twig' %}
 {% endblock %}
