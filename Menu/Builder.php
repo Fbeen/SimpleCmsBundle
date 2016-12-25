@@ -39,7 +39,12 @@ class Builder implements ContainerAwareInterface
             switch($menuitem->getType())
             {
                 case 'route':
-                    $knpMenu->addChild($menuitem->getLabel(), array('route' => $menuitem->getValue()));
+                    try {
+                        $knpMenu->addChild($menuitem->getLabel(), array('route' => $menuitem->getValue()));
+                    } catch (\Symfony\Component\Routing\Exception\RouteNotFoundException $ex) {
+                        $knpMenu->addChild($menuitem->getLabel())
+                            ->setLabelAttribute('title', 'The route "' . $menuitem->getValue() . '" does not exist.'); // make a span instead
+                    }
                     break;
             
                 case 'url':
