@@ -4,7 +4,7 @@
 
 Download the necessary bundles with Composer: 
 ```
-$ composer require fbeen/simplecmsbunlde
+$ composer require fbeen/simplecmsbundle
 ```
 Then add the bundles to the app/config/AppKernel.php file
 
